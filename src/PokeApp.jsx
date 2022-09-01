@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { PokeCard } from './pokemons/components/PokeCard';
-import { GetPokemons } from './pokemons/helpers/GetPokemons';
-
+import { pokemonApi } from './api/pokemonApi';
 
 export const PokeApp = () => {
 
@@ -15,7 +14,7 @@ export const PokeApp = () => {
 
   const handleSubmit = async(event)=>{
     event.preventDefault();
-    const data = await GetPokemons(value);
+    const data = await pokemonApi(value);
     setPokeData(data)
     setValue("");
   }
