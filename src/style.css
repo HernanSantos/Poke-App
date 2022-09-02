@@ -1,0 +1,25 @@
+.navbar{
+    background-color: blueviolet;
+    align-items: center;
+}
+
+.flex-container{
+    display: flex;
+    background-color: red;
+    justify-content: center;
+
+}
+
+.flex-container2{
+    display: flex;
+    background-color: blue;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.form{
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+}
