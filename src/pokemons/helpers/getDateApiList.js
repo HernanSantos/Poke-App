@@ -9,5 +9,6 @@ export const getDateApiList = (data) => {
                 return await getPokemonByUrl(res.url)
             })
         )
+    console.log("valores", valores)
     return valores;
 }

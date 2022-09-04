@@ -2,8 +2,10 @@
 
 export const PokeCard = (data) => {
 
+  //console.log("PRUEBA", data)
+
   const {id,name,front_default} = data.value;
-  console.log(data)
+
   return (
     
     <div className="card">

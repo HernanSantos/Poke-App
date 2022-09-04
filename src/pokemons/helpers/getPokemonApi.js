@@ -4,10 +4,10 @@
     export const getPokemonList = async(info) =>{
         const url = `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${info}`
         const resp = await fetch(url);
-        const data = await resp.json();
+        const dataList = await resp.json();
         
         //console.log("getpokemonlist",data)
-        return data;
+        return dataList;
 
         // const promesa = await Promise.all(
         //     results.map(async(res)=>{
@@ -20,17 +20,17 @@
     export const getPokemon = async(pokemon) =>{
         const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
         const resp = await fetch(url);
-        const data = await resp.json();
+        const dataNi = await resp.json();
+        const {id,name,sprites:{other:{dream_world:{front_default}}}} = dataNi;
 
-        //console.log("getpokemon",data)
-        
+        console.log("getpokemon",id,name,front_default)
+        return [{id,name,front_default}]
     }
 
     export const getPokemonByUrl = async(url) =>{
         const resp = await fetch(url);
-        const data = await resp.json();
-        console.log(typeof(data))
-        const {id,name,sprites:{other:{dream_world:{front_default}}}} = data;
+        const dataUrl = await resp.json();
+        const {id,name,sprites:{other:{dream_world:{front_default}}}} = dataUrl;
 
         return {id,name,front_default}
     }

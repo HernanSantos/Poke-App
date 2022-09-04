@@ -1,41 +1,41 @@
 import { useEffect, useState } from "react"
 import { PokeCard } from "../components/PokeCard"
 import { getDateApiList } from "../helpers/getDateApiList";
-import { getPokemon, getPokemonList,getPokemonByUrl } from "../helpers/getPokemonApi"
+import { getPokemon, getPokemonList } from "../helpers/getPokemonApi"
 
 
 export const PokedexPage = () => {
 
   const [infoPoke, setInfoPoke] = useState([]); //pasar pokecard
-
-  const [nombre, setNombre] = useState("0");
+  const [valorLista, setValorLista] = useState("0"); //valor numerico
+  const [valorString, setValorString] = useState("") //valor string
   const [valueForm, setValueForm] = useState(""); //formulario
 
   useEffect(()=>{
     const getPokemonsPage = async()=>{
-      const dataPage = await getPokemonList(nombre);
+      const dataPage = await getPokemonList(valorLista);
       const nameId = await getDateApiList(dataPage);
       setInfoPoke(nameId);
     }
     getPokemonsPage();
-  },[nombre])
+    console.log(infoPoke)
+  },[valorLista])
 
-  const prueba = Number("lalalalalalalaal")
-  console.log(prueba)
-  //console.log(typeof(prueba))
-
-  console.log("INFOPOKE",infoPoke)
-
-  const handleChange = (event) =>{
-    setValueForm(event.target.value)
-  }
 
   const handleSubmit = async(event)=>{
     event.preventDefault();
-    await getPokemon(valueForm);
-    //await getPokemonByUrl("https://pokeapi.co/api/v2/pokemon/1/");
-    setNombre(valueForm)
-    setValueForm("");
+
+    if(valueForm.length <= 3 ){
+      const algo = valueForm - "1"
+      console.log(algo)
+      setValorLista(algo)
+      setValueForm("");
+    }else{
+      const dataPage = await getPokemon(valueForm);
+      setInfoPoke(dataPage);
+      //setValorString(valueForm)
+      setValueForm("");
+    }
   }
 
   return (
@@ -64,7 +64,7 @@ export const PokedexPage = () => {
 
       <div className="container-card"> 
             {   
-              infoPoke?.map(pokes => (
+              infoPoke.map(pokes => (
                 <div>
                   <PokeCard key={pokes.id} value={pokes}/>
                 </div>
