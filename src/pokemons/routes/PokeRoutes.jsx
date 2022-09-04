@@ -10,7 +10,7 @@ export const PokeRoutes = () => {
     <>
       <Navbar/>
 
-      <div className="container">
+      <div className="container-pages">
         <Routes>
           <Route path="home" element={<PokePage/>}/>
           <Route path="pokedex" element={<PokedexPage/>}/>

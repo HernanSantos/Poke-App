@@ -5,7 +5,8 @@ import { PokeCard } from '../components/PokeCard';
 
 export const PokePage = () => {
   const [value, setValue] = useState("");
-  const [pokeData, setPokeData] = useState("");
+  const [pokeData, setPokeData] = useState([]);
+
 
   const handleChange = (event) =>{
     setValue(event.target.value)
@@ -15,7 +16,7 @@ export const PokePage = () => {
     event.preventDefault();
 
     const data = await pokemonApi(value);
-    setPokeData({data})
+    setPokeData(data)
     setValue("");
   }
 
@@ -38,7 +39,7 @@ export const PokePage = () => {
 
         <div className='d-flex justify-content-center mt-3'>
           { 
-            (pokeData === "")
+            (pokeData !== "")
             ? ""
             : <PokeCard value = {pokeData}/>
           }

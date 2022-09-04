@@ -1,25 +1,73 @@
-.navbar{
-    background-color: blueviolet;
+.container-pages{
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
 }
 
-.flex-container{
+.container-card{
     display: flex;
-    background-color: red;
+    flex-direction: row;
+    gap: 0px;
+    margin: 20px 20px 0px 20px;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-
 }
 
-.flex-container2{
+.card{
+    width: 300px;
+    border: 2px solid black;
+    background-color: lightgray;
     display: flex;
-    background-color: blue;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 20px 20px 20px;
+}
+
+.card-img{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-top: 5px;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    height: 75px;
+    margin-top: 5px;
     text-align: center;
+}
+
+.card-title{
+    font-weight:600;
+}
+
+.card-text{
+    font-weight:500;
 
 }
 
-.form{
-    background-color: yellow;
-    display: flex;
-    justify-content: center;
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }
