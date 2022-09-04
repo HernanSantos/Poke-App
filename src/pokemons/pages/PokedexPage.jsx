@@ -1,45 +1,45 @@
-import {usePagination} from "../hooks/usePagination"
 import { useEffect, useState } from "react"
 import { PokeCard } from "../components/PokeCard"
-import { PokePagination } from "../components/PokePagination"
-import { pokedexApi } from "../helpers/pokedexApi"
-//import { useReducer } from "react"
+import { getDateApiList } from "../helpers/getDateApiList";
+import { getPokemon, getPokemonList,getPokemonByUrl } from "../helpers/getPokemonApi"
 
 
 export const PokedexPage = () => {
 
-  const [page, setPage] = useState(0)
-  const [pokk, setPokk] = useState()
+  const [infoPoke, setInfoPoke] = useState([]); //pasar pokecard
 
+  const [nombre, setNombre] = useState("0");
+  const [valueForm, setValueForm] = useState(""); //formulario
 
   useEffect(()=>{
     const getPokemonsPage = async()=>{
-      const dataPage = await pokedexApi(page)
-      setPokk(dataPage)
+      const dataPage = await getPokemonList(nombre);
+      const nameId = await getDateApiList(dataPage);
+      setInfoPoke(nameId);
     }
     getPokemonsPage();
-  },[page])
+  },[nombre])
 
-  const [value, setValue] = useState("");
-  const [pokeData, setPokeData] = useState([]);
+  const prueba = Number("lalalalalalalaal")
+  console.log(prueba)
+  //console.log(typeof(prueba))
 
+  console.log("INFOPOKE",infoPoke)
 
   const handleChange = (event) =>{
-    setValue(event.target.value)
+    setValueForm(event.target.value)
   }
 
   const handleSubmit = async(event)=>{
     event.preventDefault();
-
-    const data = await pokemonApi(value);
-    setPokeData(data)
-    setValue("");
+    await getPokemon(valueForm);
+    //await getPokemonByUrl("https://pokeapi.co/api/v2/pokemon/1/");
+    setNombre(valueForm)
+    setValueForm("");
   }
 
   return (
     <div className="prueba">
-      <h2>pokedex</h2>
-
       <div className='text-center'>
         <h1>PokeApp</h1>
         </div>
@@ -50,21 +50,21 @@ export const PokedexPage = () => {
                 className="text-center w-50 justify-content-center"
                 id="exampleFormControlInput1" 
                 placeholder="ingresa nombre o numero del pokemon"
-                value={value}
+                value={valueForm}
                 onChange={handleChange}/>
             </form>
           </div>
 
-          <PokePagination page={page}/>
+          {/* <PokePagination page={page}/> */}
           
-      {page}
       <hr />
-      <button onClick={()=>setPage(page+10)}>
+      {/* <button onClick={()=>setPage(page+10)}>
         aumentar
-      </button>
+      </button> */}
+
       <div className="container-card"> 
             {   
-              pokk?.map(pokes => (
+              infoPoke?.map(pokes => (
                 <div>
                   <PokeCard key={pokes.id} value={pokes}/>
                 </div>

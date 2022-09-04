@@ -2,8 +2,8 @@
 
 export const PokeCard = (data) => {
 
-  const {hp,attack,defense,speciala,speciald,speed,id,name,weight,front_default} = data.value;
-
+  const {id,name,front_default} = data.value;
+  console.log(data)
   return (
     
     <div className="card">
