@@ -1,4 +1,4 @@
-import { getPokemonByUrl } from "./getPokemonApi";
+import { getPokemonByUrl } from "./getPokemonByUrl";
 
 export const getDateApiList = (data) => {
     
@@ -9,6 +9,5 @@ export const getDateApiList = (data) => {
                 return await getPokemonByUrl(res.url)
             })
         )
-    console.log("valores", valores)
     return valores;
 }

@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { PokeCard } from "../components/PokeCard"
 import { getDateApiList } from "../helpers/getDateApiList";
-import { getPokemon, getPokemonList } from "../helpers/getPokemonApi"
+import { getPokemon } from "../helpers/getPokemon";
+import { getPokemonList } from "../helpers/getPokemonList";
 
 
 export const PokedexPage = () => {
 
   const [infoPoke, setInfoPoke] = useState([]); //pasar pokecard
   const [valorLista, setValorLista] = useState("0"); //valor numerico
-  const [valorString, setValorString] = useState("") //valor string
   const [valueForm, setValueForm] = useState(""); //formulario
 
   useEffect(()=>{
@@ -18,25 +18,19 @@ export const PokedexPage = () => {
       setInfoPoke(nameId);
     }
     getPokemonsPage();
-    console.log(infoPoke)
   },[valorLista])
 
+  const handleChange = (event) =>{
+    setValueForm(event.target.value)
+  }
 
   const handleSubmit = async(event)=>{
     event.preventDefault();
-
-    if(valueForm.length <= 3 ){
-      const algo = valueForm - "1"
-      console.log(algo)
-      setValorLista(algo)
-      setValueForm("");
-    }else{
-      const dataPage = await getPokemon(valueForm);
-      setInfoPoke(dataPage);
-      //setValorString(valueForm)
-      setValueForm("");
-    }
+    const dataPage = await getPokemon(valueForm);
+    setInfoPoke(dataPage);
+    setValueForm("");
   }
+  
 
   return (
     <div className="prueba">
@@ -72,6 +66,5 @@ export const PokedexPage = () => {
             }
       </div>
     </div>
-
   )
-}
+ }
