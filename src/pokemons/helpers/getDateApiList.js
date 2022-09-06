@@ -1,9 +1,7 @@
 import { getPokemonByUrl } from "./getPokemonByUrl";
 
-export const getDateApiList = (data) => {
+export const getDateApiList = ({results}) => {
     
-    const {results,next,previous} = data;
-
     const valores = Promise.all(
             results.map(async(res)=>{
                 return await getPokemonByUrl(res.url)

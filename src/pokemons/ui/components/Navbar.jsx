@@ -18,13 +18,6 @@ export const Navbar = () => {
           <ul className="navbar-nav">
             <NavLink 
                 className={({isActive})=>`nav-item nav-link ${isActive ?"active" :""}`} 
-                to="/home"
-            >
-                Home
-            </NavLink>
-
-            <NavLink 
-                className={({isActive})=>`nav-item nav-link ${isActive ?"active" :""}`} 
                 to="/pokedex"
             >
                 Pokedex
