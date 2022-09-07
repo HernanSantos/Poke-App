@@ -1,37 +1,28 @@
-import { useEffect, useState } from "react";
+//genero pokemon
 
+export const female = async(name)=>{
+    const url = `https://pokeapi.co/api/v2/gender/1`;
+    const resp = await fetch(url);
+    const {pokemon_species_details} = await resp.json();
 
-export const getGender = (name) => {
+    const genderF = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
+    return genderF;
+}
 
-    const female = async()=>{
-        const url = `https://pokeapi.co/api/v2/gender/1`;
-        const resp = await fetch(url);
-        const {pokemon_species_details} = await resp.json();
+export const male = async(name)=>{
+    const url = `https://pokeapi.co/api/v2/gender/2`;
+    const resp = await fetch(url);
+    const {pokemon_species_details} = await resp.json();
 
-        const genderF = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
-        console.log("female",genderF)
-    }
+    const genderM = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
+    return genderM;
+}
 
-    const male = async()=>{
-        const url = `https://pokeapi.co/api/v2/gender/2`;
-        const resp = await fetch(url);
-        const {pokemon_species_details} = await resp.json();
+export const genderless = async(name)=>{
+    const url = `https://pokeapi.co/api/v2/gender/3`;
+    const resp = await fetch(url);
+    const {pokemon_species_details} = await resp.json();
 
-        const genderM = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
-        console.log("male",genderM)
-    }
-
-    const genderless = async()=>{
-        const url = `https://pokeapi.co/api/v2/gender/3`;
-        const resp = await fetch(url);
-        const {pokemon_species_details} = await resp.json();
-
-        const genderGl = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
-        console.log("genderless",genderGl)
-    }
-
-    genderless();
-    male();
-    female();
-  return ;
+    const genderGl = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
+    return genderGl;
 }

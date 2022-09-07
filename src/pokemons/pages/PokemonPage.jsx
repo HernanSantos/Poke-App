@@ -15,7 +15,6 @@ export const PokemonPage = () => {
       isLoading && (<h2>Cargando...</h2>)
     }
 
-    <div className="card-grid">
       {
         infoPoke.map(poke=>(
           <PokeCardPlus
@@ -23,7 +22,6 @@ export const PokemonPage = () => {
             {...poke}/>
         ))
       }
-    </div>
   </>
 )
 }
