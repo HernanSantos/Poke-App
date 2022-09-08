@@ -40,13 +40,12 @@ export const PokeCardPlus = ({
         
         <div className="habilidad">
           <span>Habilidad</span>
-            
-            <div>
-            {
-              abilitie.map(abili=>(
-                <span key={abili}>{abili}</span>
-              ))
-            }
+            <div className='habilidadLista'>
+              {
+                abilitie.map(abili=>(
+                  <div><span key={abili}>{abili}</span></div>
+                ))
+              }
             </div>
         </div>
 

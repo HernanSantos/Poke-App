@@ -8,7 +8,8 @@ import { usePagination } from "../hooks/usePagination";
 
 export const PokedexPage = () => {
 
-  const {pagine,next,previous} = usePagination(); //valor numerico
+  const {pagine, next, previous} = usePagination(); //valor numerico
+
   const [infoPoke, setInfoPoke] = useState([]); //pasar pokecard
   const [valueForm, setValueForm] = useState(""); //formulario
 
@@ -16,7 +17,7 @@ export const PokedexPage = () => {
     const getPokemonsPage = async()=>{
       const valores = await getPokemonList(pagine);
       const nameId = await getDateApiList(valores);
-
+      console.log(nameId)
       setInfoPoke(nameId);
     }
     getPokemonsPage();

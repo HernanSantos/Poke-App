@@ -7,19 +7,18 @@ export const getPokemon = async (pokemon = 0) => {
   const resp = await fetch(urlPoke);
   const dataNi = await resp.json();
 
+  console.log(dataNi)
 
-  const urlData = `https://pokeapi.co/api/v2/pokemon-species/${pokemon}`;
-  const respUrl = await fetch(urlData);
-  const dataUrl = await respUrl.json();
+  // const urlData = `https://pokeapi.co/api/v2/pokemon-species/${pokemon}`;
+  // const respUrl = await fetch(urlData);
+  // const dataUrl = await respUrl.json();
   
-  const {evolution_chain} = dataUrl;
-  const evolution = evolution_chain.url;
-  console.log(evolution)
+  // const {evolution_chain} = dataUrl;
+  // const evolution = evolution_chain.url;
 
-  const respEvol = await fetch(evolution);
-  const dataEvol = await respEvol.json();
+  // const respEvol = await fetch(evolution);
+  // const dataEvol = await respEvol.json();
 
-  console.log(dataEvol)
 
   const {
         id,
