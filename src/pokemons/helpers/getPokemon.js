@@ -3,9 +3,23 @@ import { female, male, genderless } from "./getGender";
 //obtener nombre + id
 export const getPokemon = async (pokemon = 0) => {
 
-  const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-  const resp = await fetch(url);
+  const urlPoke = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+  const resp = await fetch(urlPoke);
   const dataNi = await resp.json();
+
+
+  const urlData = `https://pokeapi.co/api/v2/pokemon-species/${pokemon}`;
+  const respUrl = await fetch(urlData);
+  const dataUrl = await respUrl.json();
+  
+  const {evolution_chain} = dataUrl;
+  const evolution = evolution_chain.url;
+  console.log(evolution)
+
+  const respEvol = await fetch(evolution);
+  const dataEvol = await respEvol.json();
+
+  console.log(dataEvol)
 
   const {
         id,
@@ -21,6 +35,7 @@ export const getPokemon = async (pokemon = 0) => {
         },
     } = dataNi;
 
+
     const typesPoke = types.map(type=>(
       type.type.name
     ));
@@ -34,7 +49,7 @@ export const getPokemon = async (pokemon = 0) => {
     const malePoke = await male(name);
     const genderlessPoke = await genderless(name);
 
-  return [{ 
+  return [{ evolution_chain,
     genderlessPoke,
     malePoke,
     femalePoke,

@@ -1,5 +1,6 @@
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
+import { pokeSpecie } from '../helpers/getGender';
 
 
 export const PokeCardPlus = ({
@@ -13,6 +14,7 @@ export const PokeCardPlus = ({
   weight,
   height,
   front_default}) => {
+
 
   return (
     <div className="contenedor">
@@ -33,17 +35,19 @@ export const PokeCardPlus = ({
 
         <div className="altura">
           <span>Altura</span>
-          <span>{height/10} kg</span>
+          <span>{height/10} m</span>
         </div>
         
         <div className="habilidad">
           <span>Habilidad</span>
-
+            
+            <div>
             {
               abilitie.map(abili=>(
                 <span key={abili}>{abili}</span>
               ))
             }
+            </div>
         </div>
 
         <div className='sexo'>
@@ -62,8 +66,10 @@ export const PokeCardPlus = ({
             </div>
 
         </div>
+      </div>
 
-        <div className="contenidoTipo">
+        <div className="tipo">
+          <div className='tipoStyle'>
             <span>Tipo</span>
             <div className="tipo-poke">
               {
@@ -71,10 +77,17 @@ export const PokeCardPlus = ({
                   <span className="mod-tipo" key={type}>{type}</span>
                 ))
               }
+            </div>
           </div>
         </div>
+
+      <div className='footer'>
+        <h2>Evoluciones</h2>
+
+          {/* EVOLUCIONES */}
+
+
       </div>
-      
     </div>
   )
 }

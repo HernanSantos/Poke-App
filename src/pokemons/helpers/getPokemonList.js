@@ -9,3 +9,4 @@ export const getPokemonList = async(info) =>{
 
     return dataList;
 }
+

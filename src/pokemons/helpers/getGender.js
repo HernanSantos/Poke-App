@@ -26,3 +26,10 @@ export const genderless = async(name)=>{
     const genderGl = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
     return genderGl;
 }
+
+export const pokeSpecie = async(pokemon)=>{
+    const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemon}/`
+    const resp = await fetch(url);
+    const data = await resp.json();
+    return data;
+}
