@@ -1,27 +1,31 @@
 import { useEffect, useState } from "react"
 import { PokeCard } from "../components/PokeCard"
-import { getDateApiList } from "../helpers/getDateApiList";
-import { getPokemon } from "../helpers/getPokemon";
-import { getPokemonList } from "../helpers/getPokemonList";
-import { usePagination } from "../hooks/usePagination";
+import {getPokemonList, getPokemon, getDateApiList} from "../helpers/index"
 
 
 export const PokedexPage = () => {
 
-  const {pagine, next, previous} = usePagination(); //valor numerico
+  const [nextPagine, setNextPagine] = useState();
+  const [prevPagine, setPrevPagine] = useState();
+  const [pagine, setPagine] = useState();
 
   const [infoPoke, setInfoPoke] = useState([]); //pasar pokecard
   const [valueForm, setValueForm] = useState(""); //formulario
 
+
   useEffect(()=>{
     const getPokemonsPage = async()=>{
-      const valores = await getPokemonList(pagine);
-      const nameId = await getDateApiList(valores);
-      console.log(nameId)
+      const {next,previous,results} = await getPokemonList(pagine);
+      console.log(next,previous,results)
+      
+      const nameId = await getDateApiList(results);
       setInfoPoke(nameId);
+      setNextPagine(next);
+      setPrevPagine(previous);
     }
     getPokemonsPage();
   },[pagine])
+
 
   const handleChange = (event) =>{
     setValueForm(event.target.value)
@@ -30,7 +34,6 @@ export const PokedexPage = () => {
   const handleSubmit = async(event)=>{
     event.preventDefault();
     const dataPage = await getPokemon(valueForm);
-    console.log("DATA", dataPage)
     setInfoPoke(dataPage);
     setValueForm("");
   }
@@ -56,11 +59,11 @@ export const PokedexPage = () => {
             <div className="pagination justify-content-end">
 
               <div className="page-item">
-                  <button  onClick={()=>previous()}>Previous</button>
+                  <button  onClick={()=> {prevPagine !== null && setPagine(prevPagine)}}>Previous</button>
               </div>
 
               <div className="page-item">
-                  <button  onClick={()=>next()}>Next</button>
+                  <button  onClick={()=>setPagine(nextPagine)}>Next</button>
               </div>
             </div>
           </nav>

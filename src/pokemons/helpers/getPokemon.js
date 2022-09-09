@@ -1,4 +1,4 @@
-import { female, male, genderless } from "./getGender";
+import { female, male, genderless } from "./index";
 
 //obtener nombre + id
 export const getPokemon = async (pokemon = 0) => {
@@ -48,7 +48,7 @@ export const getPokemon = async (pokemon = 0) => {
     const malePoke = await male(name);
     const genderlessPoke = await genderless(name);
 
-  return [{ evolution_chain,
+  return [{
     genderlessPoke,
     malePoke,
     femalePoke,

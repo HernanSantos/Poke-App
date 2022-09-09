@@ -1,6 +1,17 @@
-import { getPokemonByUrl } from "./getPokemonByUrl";
 
-export const getDateApiList = ({results}) => {
+
+export const getPokemonByUrl = async(url) =>{
+    
+    
+    const resp = await fetch(url);
+    const dataUrl = await resp.json();
+    const {id,name,sprites:{other:{dream_world:{front_default}}}} = dataUrl;
+    
+    return {id,name,front_default}
+}
+
+
+export const getDateApiList = (results) => {
     
     const valores = Promise.all(
             results.map(async(res)=>{
@@ -8,4 +19,15 @@ export const getDateApiList = ({results}) => {
             })
         )
     return valores;
+}
+
+export const getPokemonList = async(url = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0" ) =>{
+
+    // const url = `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${initialState}`
+    const resp = await fetch(url);
+    const dataList = await resp.json();
+
+    const {next,previous,results} = dataList;
+
+    return {next,previous,results};
 }

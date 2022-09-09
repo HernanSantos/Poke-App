@@ -1,7 +1,5 @@
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
-import { pokeSpecie } from '../helpers/getGender';
-
 
 export const PokeCardPlus = ({
   genderlessPoke,
@@ -14,7 +12,6 @@ export const PokeCardPlus = ({
   weight,
   height,
   front_default}) => {
-
 
   return (
     <div className="contenedor">
