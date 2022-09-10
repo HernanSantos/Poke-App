@@ -7,8 +7,6 @@ export const getPokemon = async (pokemon = 0) => {
   const resp = await fetch(urlPoke);
   const dataNi = await resp.json();
 
-  console.log(dataNi)
-
   // const urlData = `https://pokeapi.co/api/v2/pokemon-species/${pokemon}`;
   // const respUrl = await fetch(urlData);
   // const dataUrl = await respUrl.json();

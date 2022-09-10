@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { PokeCard } from "../components/PokeCard"
 import {getPokemonList, getPokemon, getDateApiList} from "../helpers/index"
-
+import {Link} from "react-router-dom"
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export const PokedexPage = () => {
 
@@ -15,9 +17,7 @@ export const PokedexPage = () => {
 
   useEffect(()=>{
     const getPokemonsPage = async()=>{
-      const {next,previous,results} = await getPokemonList(pagine);
-      console.log(next,previous,results)
-      
+      const {next,previous,results} = await getPokemonList(pagine);      
       const nameId = await getDateApiList(results);
       setInfoPoke(nameId);
       setNextPagine(next);
@@ -41,15 +41,19 @@ export const PokedexPage = () => {
   return (
     <div className="search-container">
       <div className='text-center'>
-        <h1>PokeApp</h1>
-        </div>
+      <Link
+          to="/">
+            <img src="/assets/pokemon-logo.png" alt="pokemon-logo" />
+        </Link>
+      </div>
+
           <div className='text-center'>
             <form onSubmit={handleSubmit}>
               <input 
                 type="text" 
                 className="text-input"
                 id="exampleFormControlInput1" 
-                placeholder="ingresa nombre o numero del pokemon"
+                placeholder="Buscar pokemon"
                 value={valueForm}
                 onChange={handleChange}/>
             </form>
@@ -59,11 +63,11 @@ export const PokedexPage = () => {
             <div className="pagination justify-content-end">
 
               <div className="page-item">
-                  <button  onClick={()=> {prevPagine !== null && setPagine(prevPagine)}}>Previous</button>
+                  <button className="buttonNavigate" onClick={()=> {prevPagine !== null && setPagine(prevPagine)}}><ChevronLeftIcon/>Anterior</button>
               </div>
 
               <div className="page-item">
-                  <button  onClick={()=>setPagine(nextPagine)}>Next</button>
+                  <button className="buttonNavigate" onClick={()=>setPagine(nextPagine)}>Siguiente<ChevronRightIcon/></button>
               </div>
             </div>
           </nav>

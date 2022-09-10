@@ -2,13 +2,8 @@
     margin: 0;
     padding: 0;
 }
-/* span{
-    padding-bottom: 15px;
-    padding-top: 5px;
-} */
 
 body{
-    background-color: rgba(255, 255, 255, 0.317);
     color: black;
     font-family: "Roboto", sans-serif;
 }
@@ -23,12 +18,30 @@ body{
     justify-content: center;
 }
 
-
+.idContainer{
+    background-color: rgba(159, 68, 165, 0.774);
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 9em;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 .text-input{
-    width: 320px;
+    width: 350px;
     text-align: center;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin: 10px 0px 10px 0px;
+}
+
+.buttonNavigate{
+    background-color: orangered;
+    font-size: 1.5em;
+    border-radius: 5px;
+    width: 150px;
 }
 
 .container-card{
@@ -43,8 +56,8 @@ body{
 
 .card{
     width: 300px;
-    border: 2px solid black;
-    background-color: lightgray;
+    /* border: 2px solid black; */
+    background-color: rgba(159, 68, 165, 0.774);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -157,7 +170,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: baseline;
     padding-left: 5px;
 }
 
@@ -171,7 +184,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: baseline;
     padding-left: 5px;
 }
 
@@ -203,7 +216,7 @@ body{
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .text-input{
-        width: 400px;
+        
 
     }
 }
@@ -220,9 +233,6 @@ body{
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .text-input{
-        width: 500px;
 
-    }
 
 }

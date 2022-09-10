@@ -8,14 +8,19 @@ export const PokeCard = ({id,name,front_default}) => {
   const onPokePage=()=>{
     navigate(`${name}`,{replace:true})
   }
+  
+  const numeroPokemon = () =>{
+    const nuevoId = id.toString().padStart(3,"0")
+    return nuevoId
+  }
 
   return (
     <div className="card" onClick={onPokePage}>
         <img src={front_default} className="card-img" alt="imagen_pokemon"/>
         
-        <div className="text-container">
-            <h3 className="card-title">{name}</h3>
-            <p className="card-text">Pokemon N°: {id} </p>
+        <div className="idContainer">
+            <span>#{numeroPokemon()}</span>
+            <span>{name}</span>
         </div>
     </div>
   )
