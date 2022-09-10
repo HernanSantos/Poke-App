@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { PokeCardPlus } from "../components/PokeCardPlus";
 import {usePokemons} from "../hooks/usePokemons"
+import {Link} from "react-router-dom"
 
 export const PokemonPage = () => {
 
@@ -11,6 +12,13 @@ export const PokemonPage = () => {
   return (
 
   <>
+    <div className='text-center'>
+      <Link
+          to="/">
+            <img src="/assets/pokemon-logo.png" alt="pokemon-logo" />
+        </Link>
+      </div>
+
     {
       isLoading && (<h2>Cargando...</h2>)
     }

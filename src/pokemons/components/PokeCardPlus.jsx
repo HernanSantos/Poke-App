@@ -1,4 +1,5 @@
-import {Link} from "react-router-dom"
+import { usePagination } from '../hooks/usePagination';
+import { useNavigate } from 'react-router-dom';
 
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
@@ -21,16 +22,23 @@ export const PokeCardPlus = ({
     return nuevoId
   }
 
+  const {nextPoke,prevPoke} = usePagination(id+1,id-1);
+
+  const navigate = useNavigate();
+
+  const onPokePage=(name)=>{
+    navigate(`../pokedex/${name}`)
+    window.location.reload()
+  }
+
   return (
     <>
-      <div className='text-center'>
-      <Link
-          to="/">
-            <img src="/assets/pokemon-logo.png" alt="pokemon-logo" />
-        </Link>
+      <div className='siguiente-anterior'>
+        <button onClick={()=>onPokePage(prevPoke.name)}>N.°{prevPoke.id} {prevPoke.name}</button>
+        <button onClick={()=>onPokePage(nextPoke.name)}>{nextPoke.name} N.°{nextPoke.id} </button>
       </div>
-      <div className="contenedor">
 
+      <div className="contenedor">
         <div className="header">
           <h1>#{numeroPokemon()} {name} </h1> 
         </div>

@@ -17,7 +17,6 @@ export const getPokemon = async (pokemon = 0) => {
   // const respEvol = await fetch(evolution);
   // const dataEvol = await respEvol.json();
 
-
   const {
         id,
         abilities,
@@ -27,7 +26,7 @@ export const getPokemon = async (pokemon = 0) => {
         height,
         sprites: {
         other: {
-            dream_world: { front_default },
+            "official-artwork": { front_default },
         },
         },
     } = dataNi;

@@ -19,7 +19,7 @@ body{
 }
 
 .idContainer{
-    background-color: rgba(159, 68, 165, 0.774);
+    background-color: rgba(41, 40, 41, 0.813);
     font-size: 20px;
     color: white;
     border-radius: 5px;
@@ -38,7 +38,7 @@ body{
 }
 
 .buttonNavigate{
-    background-color: orangered;
+    background-color: rgba(159, 68, 165, 0.774);
     font-size: 1.5em;
     border-radius: 5px;
     width: 150px;
@@ -97,6 +97,15 @@ body{
 
 }
 
+.siguiente-anterior{
+    display: flex;
+    width: 60%;
+    font-size: 40px;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    justify-content: space-between;
+}
 
 /*Grid box*/
 .contenedor{
