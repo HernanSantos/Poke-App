@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
-
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 export const PokeCardPlus = ({
   genderlessPoke,
@@ -17,7 +18,7 @@ export const PokeCardPlus = ({
   height,
   front_default}) => {
 
-  const numeroPokemon = () =>{
+  const numeroPokemon = (id) =>{
     const nuevoId = id.toString().padStart(3,"0")
     return nuevoId
   }
@@ -34,13 +35,18 @@ export const PokeCardPlus = ({
   return (
     <>
       <div className='siguiente-anterior'>
-        <button onClick={()=>onPokePage(prevPoke.name)}>N.°{prevPoke.id} {prevPoke.name}</button>
-        <button onClick={()=>onPokePage(nextPoke.name)}>{nextPoke.name} N.°{nextPoke.id} </button>
+        <button className='boton-pagination' onClick={()=>onPokePage(prevPoke.name)}>
+        <ArrowCircleLeftIcon fontSize="large"/> #{numeroPokemon(prevPoke.id)} {prevPoke.name}
+        </button>
+
+        <button className='boton-pagination' onClick={()=>onPokePage(nextPoke.name)}>
+        {nextPoke.name} #{numeroPokemon(nextPoke.id)} <ArrowCircleRightIcon fontSize="large"/>
+        </button>
       </div>
 
       <div className="contenedor">
         <div className="header">
-          <h1>#{numeroPokemon()} {name} </h1> 
+          <h1>#{numeroPokemon(id)} {name} </h1> 
         </div>
 
         <div className="img">

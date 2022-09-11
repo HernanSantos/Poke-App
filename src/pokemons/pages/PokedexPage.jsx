@@ -4,6 +4,7 @@ import {getPokemonList, getPokemon, getDateApiList} from "../helpers/index"
 import {Link} from "react-router-dom"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useForm } from "../hooks/useForm";
 
 export const PokedexPage = () => {
 
@@ -12,8 +13,8 @@ export const PokedexPage = () => {
   const [pagine, setPagine] = useState();
 
   const [infoPoke, setInfoPoke] = useState([]); //pasar pokecard
-  const [valueForm, setValueForm] = useState(""); //formulario
 
+  const [valueForm,handleChange,reset] = useForm();
 
   useEffect(()=>{
     const getPokemonsPage = async()=>{
@@ -26,16 +27,11 @@ export const PokedexPage = () => {
     getPokemonsPage();
   },[pagine])
 
-
-  const handleChange = (event) =>{
-    setValueForm(event.target.value)
-  }
-
   const handleSubmit = async(event)=>{
     event.preventDefault();
     const dataPage = await getPokemon(valueForm);
     setInfoPoke(dataPage);
-    setValueForm("");
+    reset();
   }
 
   return (
@@ -47,15 +43,14 @@ export const PokedexPage = () => {
         </Link>
       </div>
 
-          <div className='text-center'>
+          <div className='form-pokemon'>
             <form onSubmit={handleSubmit}>
               <input 
                 type="text" 
-                className="text-input"
-                id="exampleFormControlInput1" 
-                placeholder="Buscar pokemon"
+                placeholder="buscar pokémon"
                 value={valueForm}
-                onChange={handleChange}/>
+                onChange={handleChange}
+              />
             </form>
           </div>
 
@@ -72,8 +67,6 @@ export const PokedexPage = () => {
             </div>
           </nav>
           
-      <hr />
-
       <div className="container-card"> 
             {   
               infoPoke.map(pokes => (
