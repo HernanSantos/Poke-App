@@ -91,9 +91,19 @@ body{
     justify-content: center;
 }
 
-.who-img{
+.who-img-hidden{
     filter: brightness(0);
 }
+.who-img-revealed{
+    filter: brightness(1);
+}
+.view-input-hidden{
+    display: none;
+}
+.view-input-revealed{
+    display: inline;
+}
+
 
 .card{
     width: 300px;
