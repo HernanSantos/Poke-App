@@ -12,13 +12,6 @@ export const PokemonPage = () => {
   return (
 
   <>
-    <div className='text-center'>
-      <Link
-          to="/">
-            <img src="/assets/pokemon-logo.png" alt="pokemon-logo" />
-        </Link>
-      </div>
-
     {
       isLoading && (<h2>Cargando...</h2>)
     }

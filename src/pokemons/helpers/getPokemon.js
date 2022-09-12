@@ -1,7 +1,7 @@
 import { female, male, genderless } from "./index";
 
 //obtener nombre + id
-export const getPokemon = async (pokemon = 0) => {
+export const getPokemon = async (pokemon) => {
 
   const urlPoke = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
   const resp = await fetch(urlPoke);

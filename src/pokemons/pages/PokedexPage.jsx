@@ -36,12 +36,6 @@ export const PokedexPage = () => {
 
   return (
     <div className="search-container">
-      <div className='text-center'>
-      <Link
-          to="/">
-            <img src="/assets/pokemon-logo.png" alt="pokemon-logo" />
-        </Link>
-      </div>
 
           <div className='form-pokemon'>
             <form onSubmit={handleSubmit}>

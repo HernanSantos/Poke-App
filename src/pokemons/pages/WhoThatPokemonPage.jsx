@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getWhoThatPokemon } from "../helpers"
 import { useForm } from "../hooks/useForm";
 
@@ -19,6 +19,12 @@ export const WhoThatPokemonPage = () => {
         setCompare("")
         setViewInput(true)
     } 
+
+    const navigate = useNavigate();
+
+    const onPokePage=()=>{
+      navigate(`../pokedex/${whoPokemon.name}`)
+    }
 
     useEffect(() => {
         if (random.length !== 0){
@@ -50,42 +56,45 @@ export const WhoThatPokemonPage = () => {
 
     
   return (
-    <div className="search-container">
-        <div className='text-center'>
-            <Link
-            to="/">
-                <img src="/assets/pokemon-logo.png" alt="pokemon-logo"/>
-            </Link>
-      </div>
+    // <div className="search-container">
+        <div className="who-pokemon-container">
+            <div>
+                <span className= { `nombre-whothatpokemon-span ${viewInput ? "view-input-revealed" :"view-input-hidden"}`}
+                    >¿Quien es este pokémon?</span>
+            </div>
 
-      <div>
+            <div className="form-pokemon">
+                <form onSubmit={handleSubmit}>
+                    <input 
+                        type="text"
+                        placeholder="ingresar nombre"
+                        value={valueForm}
+                        onChange={handleChange}
+                        className={viewInput ?"view-input-revealed" :"view-input-hidden"}
+                    />
+                </form>
+            </div>
 
-        <h2 className= { `text-center" ${viewInput ? "view-input-revealed" :"view-input-hidden"}`}>¿Quien es este pokémon?</h2>
+            <div>
+                {(compare) && <span className="nombre-whothatpokemon">{whoPokemon?.name}</span>}
+            </div>
 
-        <form onSubmit={handleSubmit}>
-            <input type="text"
-                    placeholder="ingresar nombre"
-                    value={valueForm}
-                    onChange={handleChange}
-                    className={viewInput ?"view-input-revealed" :"view-input-hidden"}
-            />
-        </form>
+            <div className="whoPokemonCard" onClick={onPokePage}>
+                {whoPokemon?.front_default && 
+                    <img src={whoPokemon.front_default} 
+                        alt="pokemon" 
+                        className={`card  xl ${compare? "who-img-revealed" : "who-img-hidden"}`}
+                    />
+                }
+            </div>
 
-        <div className="whoPokemonCard">
-            {(compare) && <div>{whoPokemon?.name}</div>
-            }
-
-            {whoPokemon?.front_default && 
-                <img src={whoPokemon.front_default} 
-                    alt="pokemon" 
-                    className={(compare)? "who-img-revealed" : "who-img-hidden"}/>
-                    }
+            <div>
+                <button onClick={randomPokemon} className="button-start-game">
+                    ADIVINA EL POKEMON
+                </button>
+            </div>
+  
         </div>
-        
-        <button onClick={randomPokemon}>
-            COMENZAR EL JUEGO
-        </button>
-      </div>
-    </div>
+    // </div>
   )
 }

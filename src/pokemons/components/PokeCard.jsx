@@ -15,7 +15,7 @@ export const PokeCard = ({id,name,front_default}) => {
   }
 
   return (
-    <div className="card" onClick={onPokePage}>
+    <div className="card xs" onClick={onPokePage}>
         <img src={front_default} className="card-img" alt="imagen_pokemon"/>
         
         <div className="idContainer">
