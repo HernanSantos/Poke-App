@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getWhoThatPokemon } from "../helpers"
 import { useForm } from "../hooks/useForm";
 
@@ -12,13 +12,14 @@ export const WhoThatPokemonPage = () => {
 
     const [valueForm,handleChange,reset] = useForm();
     const [compare, setCompare] = useState();
-    const [counterFail, setCounterFail] = useState(3)
+    const [counterFail, setCounterFail] = useState()
 
     const randomPokemon = ()=>{
         const valorRandom = Math.floor(Math.random()*150)
         setRandom(valorRandom);
         setCompare("")
         setViewInput(true)
+        setCounterFail(3)
     } 
 
     const navigate = useNavigate();
@@ -29,7 +30,6 @@ export const WhoThatPokemonPage = () => {
 
     useEffect(() => {
         if(counterFail === 0){
-            console.log("valgo 0")
             setCompare(true)
         }
     }, [counterFail])
@@ -67,16 +67,14 @@ export const WhoThatPokemonPage = () => {
     
   return (
     // <div className="search-container">
-        <div className="who-pokemon-container">
+        <div className="who-pokemon-container ">
             <div>
                 <span className= { `nombre-whothatpokemon-span ${viewInput ? "view-input-revealed" :"view-input-hidden"}`}
                     >¿Quien es este pokémon?</span>
             </div>
 
             {
-                (counterFail >  0)
-                    ? <span>Intentos disponibles: {counterFail}</span>
-                    : <span>Perdisteeee!!</span>
+                (counterFail > 0 && compare == false) && <span>Intentos disponibles: {counterFail}</span>
             }
 
 
@@ -90,6 +88,15 @@ export const WhoThatPokemonPage = () => {
                         className={viewInput ?"view-input-revealed" :"view-input-hidden"}
                     />
                 </form>
+            </div>
+
+            <div className="win-lose">
+            {
+                (compare && (counterFail >  0)) && <span className="nombre-whothatpokemon">¡Ganaste!</span>
+            }
+            {
+                (counterFail ===  0)  && <span className="nombre-whothatpokemon">¡Perdiste!</span>
+            }
             </div>
 
             <div>
@@ -106,12 +113,20 @@ export const WhoThatPokemonPage = () => {
             </div>
 
             <div>
-                <button onClick={randomPokemon} className="button-start-game">
-                    ADIVINA EL POKEMON
+                <button 
+                    onClick={randomPokemon} 
+                    className={`button-start-game ${(counterFail ===  0) ? "view-input-revealed" :"view-input-hidden"}`}>
+                    Volver a intentar
                 </button>
             </div>
   
+        <div>
+            <button onClick={randomPokemon} className="button-start-game">
+                ADIVINA EL POKEMON
+            </button>
         </div>
+        
+    </div>
     // </div>
   )
 }
