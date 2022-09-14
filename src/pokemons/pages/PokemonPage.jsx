@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { PokeCardPlus } from "../components/PokeCardPlus";
 import {usePokemons} from "../hooks/usePokemons"
-import {Link} from "react-router-dom"
 
 export const PokemonPage = () => {
 

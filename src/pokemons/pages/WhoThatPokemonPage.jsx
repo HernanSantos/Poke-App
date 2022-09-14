@@ -12,6 +12,7 @@ export const WhoThatPokemonPage = () => {
 
     const [valueForm,handleChange,reset] = useForm();
     const [compare, setCompare] = useState();
+    const [counterFail, setCounterFail] = useState(3)
 
     const randomPokemon = ()=>{
         const valorRandom = Math.floor(Math.random()*150)
@@ -25,6 +26,14 @@ export const WhoThatPokemonPage = () => {
     const onPokePage=()=>{
       navigate(`../pokedex/${whoPokemon.name}`)
     }
+
+    useEffect(() => {
+        if(counterFail === 0){
+            console.log("valgo 0")
+            setCompare(true)
+        }
+    }, [counterFail])
+    
 
     useEffect(() => {
         if (random.length !== 0){
@@ -50,6 +59,7 @@ export const WhoThatPokemonPage = () => {
             setCompare(true)
         }else{
             setCompare(false)
+            setCounterFail((fail) => fail -1)
         }
         reset();
     }
@@ -62,6 +72,13 @@ export const WhoThatPokemonPage = () => {
                 <span className= { `nombre-whothatpokemon-span ${viewInput ? "view-input-revealed" :"view-input-hidden"}`}
                     >¿Quien es este pokémon?</span>
             </div>
+
+            {
+                (counterFail >  0)
+                    ? <span>Intentos disponibles: {counterFail}</span>
+                    : <span>Perdisteeee!!</span>
+            }
+
 
             <div className="form-pokemon">
                 <form onSubmit={handleSubmit}>

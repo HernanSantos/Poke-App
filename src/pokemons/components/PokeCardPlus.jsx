@@ -33,7 +33,8 @@ export const PokeCardPlus = ({
   }
 
   return (
-    <>
+    <div className='pokemon-info-container'>
+
       <div className='siguiente-anterior'>
         <button className='boton-pagination' onClick={()=>onPokePage(prevPoke.name)}>
         <ArrowCircleLeftIcon fontSize="large"/> #{numeroPokemon(prevPoke.id)} {prevPoke.name}
@@ -45,73 +46,67 @@ export const PokeCardPlus = ({
       </div>
 
       <div className="contenedor">
-        <div className="header">
+
+        <div className="name-number-pokemon">
           <h1>#{numeroPokemon(id)} {name} </h1> 
         </div>
 
-        <div className="img">
-          <img className="card-img-plus" src={front_default} alt="img-pokemon" />
+        <div className='img-info'>
+          <img className='img' src={front_default} alt="img-pokemon" />
         </div>
         
-        <div className="contenido">
-          <div className="peso">
+        <div className='type-pokemon'>
+          <h2>Tipo</h2>
+          <div className='div-type-info'>
+              {
+                typesPoke.map(type=>(
+                  <span className="type-info" key={type}>{type}</span>
+                ))
+              }
+          </div>
+        </div>
+
+        <div className='info-container'>
+
+          <div className="weight-info">
             <span>Peso</span>
             <span>{weight/10} kg</span>
           </div>
 
-          <div className="altura">
+          <div className="height-info">
             <span>Altura</span>
             <span>{height/10} m</span>
           </div>
           
-          <div className="habilidad">
-            <span>Habilidad</span>
-                {
-                  abilitie.map(abili=>(
-                    <div><span key={abili}>{abili}</span></div>
-                  ))
-                }
-          </div>
-
-          <div className='sexo'>
+          <div className='gender-info'>
             <span>Sexo</span>
-
-              <div>
-                {
-                (genderlessPoke !== undefined && <span>Desconocido</span>)
-                }
-                {
-                  (malePoke !== undefined && <MaleIcon sx={{ fontSize: 30 }}/>)
-                }
-                {
-                  (femalePoke !== undefined && <FemaleIcon sx={{ fontSize: 30 }}/>)
-                }
-              </div>
-
-          </div>
-        </div>
-
-          <div className="tipo">
-            <div className='tipoStyle'>
-              <span>Tipo</span>
-              <div className="tipo-poke">
-                {
-                  typesPoke.map(type=>(
-                    <span className="mod-tipo" key={type}>{type}</span>
-                  ))
-                }
-              </div>
+            <div>
+              {
+              (genderlessPoke !== undefined && <span>Desconocido</span>)
+              }
+              {
+                (malePoke !== undefined && <MaleIcon sx={{ fontSize: 30 }}/>)
+              }
+              {
+                (femalePoke !== undefined && <FemaleIcon sx={{ fontSize: 30 }}/>)
+              }
             </div>
           </div>
 
-        <div className='footer'>
-          <h2>Evoluciones</h2>
-
-            {/* EVOLUCIONES */}
-
+          <div className="habiliti-info">
+            <span className='habiliti-span'>Habilidad</span>
+            <div className='habiliti-map'>
+              {
+                abilitie.map(abili=>(
+                  <span key={abili}>{abili}</span>
+                ))
+              }
+            </div>  
+          </div>
 
         </div>
+
       </div>
-    </>
+    </div>
   )
 }
