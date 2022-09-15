@@ -3,6 +3,30 @@
     padding: 0;
 }
 
+
+.modal{
+    background-color: red;
+    width: 15vw;
+    height: 15vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: calc(50vh - 7.25vh) calc(50vw - 7.25vw);
+}
+.modal-open{
+    display: flex;
+}
+.modal_dialog{
+    background-color: #888888;
+    padding: 10px;
+    font-size: 25px;
+}
+
 body{
     color: rgb(0, 0, 0);
     font-family: "Roboto", sans-serif;

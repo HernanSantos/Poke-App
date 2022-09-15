@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { Modal } from "../components/Modal";
 import { getWhoThatPokemon } from "../helpers"
 import { useForm } from "../hooks/useForm";
 
@@ -8,19 +9,25 @@ export const WhoThatPokemonPage = () => {
 
     const [whoPokemon, setWhoPokemon] = useState();
     const [random, setRandom] = useState("")
-    const [viewInput, setViewInput] = useState(false)
+    const [newTry, setNewTry] = useState()
+
+    const [inputValue, setInputValue] = useState("")
 
     const [valueForm,handleChange,reset] = useForm();
     const [compare, setCompare] = useState();
     const [counterFail, setCounterFail] = useState()
 
-    const randomPokemon = ()=>{
-        const valorRandom = Math.floor(Math.random()*150)
-        setRandom(valorRandom);
-        setCompare("")
-        setViewInput(true)
-        setCounterFail(3)
-    } 
+    useEffect(()=>{
+        const randomPokemon = ()=>{
+            const valorRandom = Math.floor(Math.random()*150)
+            setRandom(valorRandom);
+            setCompare("")
+            setCounterFail(3)
+        }
+        randomPokemon();
+        setNewTry(false)
+    },[newTry]);
+     
 
     const navigate = useNavigate();
 
@@ -30,11 +37,10 @@ export const WhoThatPokemonPage = () => {
 
     useEffect(() => {
         if(counterFail === 0){
-            setCompare(true)
+            setCompare("win")
         }
     }, [counterFail])
     
-
     useEffect(() => {
         if (random.length !== 0){
             const dataPokemon = async()=>{
@@ -50,33 +56,45 @@ export const WhoThatPokemonPage = () => {
                 dataPokemon();
         }
     }, [random])
-    
-    const handleSubmit = (event) =>{
-        event.preventDefault();
-        // setValorIngresado(valueForm.toLocaleLowerCase());
 
-        if(valueForm.toLocaleLowerCase() === whoPokemon.name){
-            setCompare(true)
+    useEffect(() => {
+        if(valueForm.toLocaleLowerCase() === whoPokemon?.name){
+            setCompare("win")
         }else{
-            setCompare(false)
+            setCompare("false")
             setCounterFail((fail) => fail -1)
         }
         reset();
+    }, [inputValue])
+    
+    
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        setInputValue(valueForm);
     }
+
+    const [isOpenModal, setIsOpenModal] = useState(false)
+
 
     
   return (
-    // <div className="search-container">
         <div className="who-pokemon-container ">
             <div>
-                <span className= { `nombre-whothatpokemon-span ${viewInput ? "view-input-revealed" :"view-input-hidden"}`}
-                    >¿Quien es este pokémon?</span>
+                 <span className= "nombre-whothatpokemon-span">¿Quien es este pokémon?</span>
             </div>
 
             {
-                (counterFail > 0 && compare == false) && <span>Intentos disponibles: {counterFail}</span>
+                (counterFail > 0) && <span>Intentos disponibles: {counterFail}</span>
             }
 
+            <div>
+                <button onClick={()=>setIsOpenModal(true)}>abrir modal</button>
+                <Modal 
+                    isOpen={isOpenModal} 
+                    closeModal = {()=>setIsOpenModal(false)} 
+                    counterFail={counterFail}
+                />
+            </div>
 
             <div className="form-pokemon">
                 <form onSubmit={handleSubmit}>
@@ -85,14 +103,13 @@ export const WhoThatPokemonPage = () => {
                         placeholder="ingresar nombre"
                         value={valueForm}
                         onChange={handleChange}
-                        className={viewInput ?"view-input-revealed" :"view-input-hidden"}
                     />
                 </form>
             </div>
 
             <div className="win-lose">
             {
-                (compare && (counterFail >  0)) && <span className="nombre-whothatpokemon">¡Ganaste!</span>
+                (compare == "win" && (counterFail >  0)) && <span className="nombre-whothatpokemon">¡Ganaste!</span>
             }
             {
                 (counterFail ===  0)  && <span className="nombre-whothatpokemon">¡Perdiste!</span>
@@ -100,33 +117,25 @@ export const WhoThatPokemonPage = () => {
             </div>
 
             <div>
-                {(compare) && <span className="nombre-whothatpokemon">{whoPokemon?.name}</span>}
+                {(compare == "win") && <span className="nombre-whothatpokemon">{whoPokemon?.name}</span>}
             </div>
 
             <div className="whoPokemonCard" onClick={onPokePage}>
                 {whoPokemon?.front_default && 
                     <img src={whoPokemon.front_default} 
                         alt="pokemon" 
-                        className={`card  xl ${compare? "who-img-revealed" : "who-img-hidden"}`}
+                        className={`card  xl ${(compare == "win" || counterFail ===  0) ? "who-img-revealed" : "who-img-hidden"}`}
                     />
                 }
             </div>
 
             <div>
                 <button 
-                    onClick={randomPokemon} 
-                    className={`button-start-game ${(counterFail ===  0) ? "view-input-revealed" :"view-input-hidden"}`}>
+                    onClick={()=>setNewTry(true)} 
+                    className={`button-start-game ${(counterFail ===  0 || compare === "win") ? "view-input-revealed" :"view-input-hidden"}`}>
                     Volver a intentar
                 </button>
-            </div>
-  
-        <div>
-            <button onClick={randomPokemon} className="button-start-game">
-                ADIVINA EL POKEMON
-            </button>
-        </div>
-        
+            </div>    
     </div>
-    // </div>
   )
 }
