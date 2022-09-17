@@ -4,25 +4,27 @@ import { useEffect, useState } from "react"
 export const useComparePokemons = (namePokemon, valueForm) => {
 
     const [compare, setCompare] = useState();
-    const [counter, setCounter] = useState()
+    const [counter, setCounter] = useState(3)
 
-    console.log("valueForm:", valueForm)
     console.log("name:", namePokemon)
-    console.log("compare", compare)
-    console.log("counter", counter)
+    console.log("compare",compare)
 
     useEffect(() => {
         if(namePokemon){
             setCompare(false);
-            if(namePokemon?.toLowerCase() == valueForm){
+            if(namePokemon?.toLowerCase() === valueForm){
                 setCompare(true)
-                setCounter(3)
             }else{
                 setCompare(false)
                 setCounter(()=> counter -1 )
             }
         }        
     }, [valueForm])
-    
-  return [compare,counter,setCompare]
+
+    const resetValue = () =>{
+        setCompare();
+        setCounter(3);
+    }
+
+  return [compare,counter,resetValue]
 }

@@ -12,21 +12,30 @@ export const WhoThatPokemonPage = () => {
     //state
     const [whoPokemon, setWhoPokemon] = useState();
     const [inputValue, setInputValue] = useState("")
-
+    const [isOpenModal, setIsOpenModal] = useState("")
 
     //hooks
     const [valueForm,handleChange,reset] = useForm();
     const [randomPokemon,newRandomPokemon] = useRandomPokemon();
-    const [compare,counter,setCompare] = useComparePokemons(whoPokemon?.name,inputValue);
+    const [compare,counter,resetValue] = useComparePokemons(whoPokemon?.name,inputValue);
 
-    
+    console.log("value",inputValue)
+
     const navigate = useNavigate();
 
     const onPokePage=()=>{
       navigate(`../pokedex/${whoPokemon.name}`)
     }
 
+    useEffect(() => {
+        if(inputValue){
+            console.log("comapre",!compare)
+            setIsOpenModal(!compare);
+        }
+    }, [inputValue])
     
+
+
     useEffect(() => {
         if (randomPokemon){
             const dataPokemon = async()=>{
@@ -46,30 +55,18 @@ export const WhoThatPokemonPage = () => {
    
     const handleSubmit = (event) =>{
         event.preventDefault();
-        setInputValue(valueForm); 
+        setInputValue(valueForm);    
         reset();
     }
 
-    const [isOpenModal, setIsOpenModal] = useState(false)
-
-
-    
   return (
         <div className="who-pokemon-container ">
             <div>
                  <span className= "nombre-whothatpokemon-span">¿Quien es este pokémon?</span>
             </div>
 
-            {/* {
-                (counterFail > 0) && <span>Intentos disponibles: {counterFail}</span>
-            } */}
-
             <div>
-                <Modal 
-                    isOpen={isOpenModal} 
-                    // closeModal = {()=>setIsOpenModal()} 
-                    counterFail={counter}
-                />
+                <button onClick={()=>setIsOpenModal(true)}>{counter}</button>
             </div>
 
             <div className="form-pokemon">
@@ -81,6 +78,11 @@ export const WhoThatPokemonPage = () => {
                         onChange={handleChange}
                     />
                 </form>
+                <Modal 
+                    isOpen={isOpenModal} 
+                    setIsOpenModal={()=>setIsOpenModal()}
+                    counterFail={counter}
+                />
             </div>
 
             <div className="win-lose">
@@ -107,7 +109,7 @@ export const WhoThatPokemonPage = () => {
 
             <div>
                 <button 
-                    onClick={()=>{newRandomPokemon();setCompare()}} 
+                    onClick={()=>{newRandomPokemon();resetValue()}} 
                     className={`button-start-game ${(counter ===  0 || compare) ? "view-input-revealed" :"view-input-hidden"}`}>
                     Volver a intentar
                 </button>
