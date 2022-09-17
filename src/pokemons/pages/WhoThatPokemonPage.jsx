@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { Modal } from "../components/Modal";
 import { getWhoThatPokemon } from "../helpers"
 import { useComparePokemons } from "../hooks/useComparePokemons";
 import { useForm } from "../hooks/useForm";
@@ -12,29 +11,24 @@ export const WhoThatPokemonPage = () => {
     //state
     const [whoPokemon, setWhoPokemon] = useState();
     const [inputValue, setInputValue] = useState("")
-    const [isOpenModal, setIsOpenModal] = useState("")
 
     //hooks
     const [valueForm,handleChange,reset] = useForm();
     const [randomPokemon,newRandomPokemon] = useRandomPokemon();
-    const [compare,counter,resetValue] = useComparePokemons(whoPokemon?.name,inputValue);
-
-    console.log("value",inputValue)
+    const [compare,counter,isOpenModal,resetValue,setIsOpenModal] = useComparePokemons(whoPokemon?.name,inputValue);
 
     const navigate = useNavigate();
-
     const onPokePage=()=>{
       navigate(`../pokedex/${whoPokemon.name}`)
     }
 
+
     useEffect(() => {
-        if(inputValue){
-            console.log("comapre",!compare)
-            setIsOpenModal(!compare);
-        }
+        setTimeout(() => {
+            setIsOpenModal(false)
+          }, 3000);        
     }, [inputValue])
     
-
 
     useEffect(() => {
         if (randomPokemon){
@@ -78,11 +72,11 @@ export const WhoThatPokemonPage = () => {
                         onChange={handleChange}
                     />
                 </form>
-                <Modal 
-                    isOpen={isOpenModal} 
-                    setIsOpenModal={()=>setIsOpenModal()}
-                    counterFail={counter}
-                />
+                <div className={`modal ${isOpenModal && counter != 0 && "modal-open"}`}>
+                    <div className="modal_dialog">
+                        <span>Fallaste, intetos disponibles: {counter}</span>
+                    </div>
+                </div>
             </div>
 
             <div className="win-lose">
