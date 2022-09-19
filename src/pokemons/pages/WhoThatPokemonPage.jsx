@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { CluePokemon } from "../components/CluePokemon";
 import { getWhoThatPokemon } from "../helpers"
 import { useComparePokemons } from "../hooks/useComparePokemons";
 import { useForm } from "../hooks/useForm";
 import { useRandomPokemon } from "../hooks/useRandomPokemon";
-
 
 export const WhoThatPokemonPage = () => {
 
     //state
     const [whoPokemon, setWhoPokemon] = useState();
     const [inputValue, setInputValue] = useState("")
+    const [buttonState, setButtonState] = useState()
 
     //hooks
     const [valueForm,handleChange,reset] = useForm();
@@ -22,25 +23,30 @@ export const WhoThatPokemonPage = () => {
       navigate(`../pokedex/${whoPokemon.name}`)
     }
 
-
     useEffect(() => {
         setTimeout(() => {
             setIsOpenModal(false)
           }, 3000);        
     }, [inputValue])
     
+    const restoreValues = () =>{
+        newRandomPokemon()
+        resetValue()
+        setButtonState()
+    }
 
     useEffect(() => {
         if (randomPokemon){
             const dataPokemon = async()=>{
                 const {id,
                     name,
+                    types,
                     sprites: {
                     other: {
                         "official-artwork": {front_default},
                     },
                     },} = await getWhoThatPokemon(randomPokemon)
-            setWhoPokemon({id,name,front_default})
+            setWhoPokemon({id,name,front_default,types})
             }
             dataPokemon();
         }
@@ -58,10 +64,16 @@ export const WhoThatPokemonPage = () => {
             <div>
                  <span className= "nombre-whothatpokemon-span">¿Quien es este pokémon?</span>
             </div>
+            
+            <CluePokemon types={whoPokemon?.types}/>
 
-            <div>
-                <button onClick={()=>setIsOpenModal(true)}>{counter}</button>
-            </div>
+            {/* <div>
+                <span className={`${buttonState ? "span-clue-revealed" :"span-clue-hide"}`}>{whoPokemon?.name}</span>
+                <button disabled={buttonState} onClick={()=> setButtonState(true)}>
+                    Pista++++
+                </button>
+            </div> */}
+            
 
             <div className="form-pokemon">
                 <form onSubmit={handleSubmit}>
@@ -103,7 +115,7 @@ export const WhoThatPokemonPage = () => {
 
             <div>
                 <button 
-                    onClick={()=>{newRandomPokemon();resetValue()}} 
+                    onClick={restoreValues} 
                     className={`button-start-game ${(counter ===  0 || compare) ? "view-input-revealed" :"view-input-hidden"}`}>
                     Volver a intentar
                 </button>

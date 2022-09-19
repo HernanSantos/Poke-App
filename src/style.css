@@ -26,6 +26,13 @@
     padding: 10px;
     font-size: 25px;
 }
+.span-clue-hide{
+    display: none;
+}
+.span-clue-revealed{
+    display: flex;
+    color: rgb(122, 114, 114);
+}
 
 body{
     color: rgb(0, 0, 0);
