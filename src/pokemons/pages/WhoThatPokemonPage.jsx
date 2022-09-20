@@ -2,16 +2,15 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { CluePokemon } from "../components/CluePokemon";
 import { getWhoThatPokemon } from "../helpers"
-import { useComparePokemons } from "../hooks/useComparePokemons";
-import { useForm } from "../hooks/useForm";
-import { useRandomPokemon } from "../hooks/useRandomPokemon";
+import { useForm,useRandomPokemon,useComparePokemons } from "../hooks";
+import Autosuggest from "react-autosuggest";
+
 
 export const WhoThatPokemonPage = () => {
 
     //state
     const [whoPokemon, setWhoPokemon] = useState();
     const [inputValue, setInputValue] = useState("")
-    const [buttonState, setButtonState] = useState()
 
     //hooks
     const [valueForm,handleChange,reset] = useForm();
@@ -26,13 +25,12 @@ export const WhoThatPokemonPage = () => {
     useEffect(() => {
         setTimeout(() => {
             setIsOpenModal(false)
-          }, 3000);        
+          }, 2500);        
     }, [inputValue])
     
     const restoreValues = () =>{
         newRandomPokemon()
         resetValue()
-        setButtonState()
     }
 
     useEffect(() => {
@@ -65,16 +63,6 @@ export const WhoThatPokemonPage = () => {
                  <span className= "nombre-whothatpokemon-span">¿Quien es este pokémon?</span>
             </div>
             
-            <CluePokemon types={whoPokemon?.types}/>
-
-            {/* <div>
-                <span className={`${buttonState ? "span-clue-revealed" :"span-clue-hide"}`}>{whoPokemon?.name}</span>
-                <button disabled={buttonState} onClick={()=> setButtonState(true)}>
-                    Pista++++
-                </button>
-            </div> */}
-            
-
             <div className="form-pokemon">
                 <form onSubmit={handleSubmit}>
                     <input 
@@ -86,10 +74,13 @@ export const WhoThatPokemonPage = () => {
                 </form>
                 <div className={`modal ${isOpenModal && counter != 0 && "modal-open"}`}>
                     <div className="modal_dialog">
-                        <span>Fallaste, intetos disponibles: {counter}</span>
+                        <span>¡¡Fallaste!!</span>
+                        <span>intetos disponibles: {counter}</span>
                     </div>
                 </div>
             </div>
+
+            <CluePokemon types={whoPokemon?.types}/>
 
             <div className="win-lose">
             {

@@ -8,25 +8,21 @@ export const CluePokemon = ({types=[]}) => {
     var typePokemons = ""
 
     for (var i = 0; i< types.length; i++){
-        console.log("estoy aca")
          if(i == types.length-1){
             typePokemons = typePokemons.concat(types[i]?.type.name)
-            console.log("1",typePokemons)
         }else{
-            typePokemons = typePokemons.concat(types[i]?.type.name + " & ")
-            console.log("2",typePokemons)
+            typePokemons = typePokemons.concat(types[i]?.type.name + " y ")
         } 
     }
     
     useEffect(() => {
         setButtonState(false)
-        
     }, [types])
     
   return (
-    <div>
-        <span className={`${buttonState ? "span-clue-revealed" :"span-clue-hide"}`}>Este pokemon es tipo: {typePokemons} </span>
-        <button disabled={buttonState} onClick={()=> setButtonState(true)}>
+    <div className="div-clue">
+        <span className={`${buttonState ? "span-clue-revealed" :"span-clue-hide"}`}>Este pokemon es tipo {typePokemons} </span>
+        <button className="button-clue" disabled={buttonState} onClick={()=> setButtonState(true)}>
             Pista
         </button>
     </div>
