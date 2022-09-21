@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { PokeCard } from "../components/PokeCard"
 import {getPokemonList, getPokemon, getDateApiList} from "../helpers/index"
-import {Link} from "react-router-dom"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useForm } from "../hooks/useForm";

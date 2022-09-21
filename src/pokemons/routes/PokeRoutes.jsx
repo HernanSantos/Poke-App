@@ -3,6 +3,7 @@ import { PokedexPage } from "../pages/PokedexPage"
 import { PokemonPage } from "../pages/PokemonPage"
 import { WhoThatPokemonPage } from "../pages/WhoThatPokemonPage"
 
+
 export const PokeRoutes = () => {
   return (
     <>

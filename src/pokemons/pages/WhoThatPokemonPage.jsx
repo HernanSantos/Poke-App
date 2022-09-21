@@ -2,9 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { CluePokemon } from "../components/CluePokemon";
 import { getWhoThatPokemon } from "../helpers"
-import { useForm,useRandomPokemon,useComparePokemons } from "../hooks";
-import Autosuggest from "react-autosuggest";
-
+import { useRandomPokemon,useComparePokemons,useFormAutoCompete } from "../hooks";
 
 export const WhoThatPokemonPage = () => {
 
@@ -13,7 +11,7 @@ export const WhoThatPokemonPage = () => {
     const [inputValue, setInputValue] = useState("")
 
     //hooks
-    const [valueForm,handleChange,reset] = useForm();
+    const [namePokemon,pokemonsMatch,setPokemonsMatch,setNamePokemon,searchPokemon,reset] = useFormAutoCompete();
     const [randomPokemon,newRandomPokemon] = useRandomPokemon();
     const [compare,counter,isOpenModal,resetValue,setIsOpenModal] = useComparePokemons(whoPokemon?.name,inputValue);
 
@@ -53,8 +51,15 @@ export const WhoThatPokemonPage = () => {
    
     const handleSubmit = (event) =>{
         event.preventDefault();
-        setInputValue(valueForm);    
+        setInputValue(namePokemon);    
         reset();
+    }
+
+    const handleClick=(name)=>{
+        console.log(name)
+        console.log("me hicieron click")
+        setNamePokemon(name);
+        setPokemonsMatch([]);
     }
 
   return (
@@ -68,9 +73,15 @@ export const WhoThatPokemonPage = () => {
                     <input 
                         type="text"
                         placeholder="ingresar nombre"
-                        value={valueForm}
-                        onChange={handleChange}
+                        value={namePokemon}
+                        onChange={(e)=>searchPokemon(e.target.value)}
                     />
+                    {/* mostrar sugerencias */}
+                    {pokemonsMatch && pokemonsMatch.map((item)=>(
+                        <div>
+                            <span onClick={(e)=>handleClick(e.target.innerHTML)}>{item.name}</span>
+                        </div>
+                    ))}
                 </form>
                 <div className={`modal ${isOpenModal && counter != 0 && "modal-open"}`}>
                     <div className="modal_dialog">

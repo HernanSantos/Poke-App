@@ -15,7 +15,7 @@ export const Navbar = () => {
             <NavLink className="navbar-link" to="/pokedex">
                 Inicio
             </NavLink>
-            <NavLink className="navbar-link" to="whothatpokemon">
+            <NavLink className="navbar-link" to="/whothatpokemon">
                 Adivina el pokémon
             </NavLink>
         </div>
