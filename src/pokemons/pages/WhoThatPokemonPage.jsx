@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import { CluePokemon } from "../components/CluePokemon";
 import { getWhoThatPokemon } from "../helpers"
@@ -15,11 +15,15 @@ export const WhoThatPokemonPage = () => {
     const [randomPokemon,newRandomPokemon] = useRandomPokemon();
     const [compare,counter,isOpenModal,resetValue,setIsOpenModal] = useComparePokemons(whoPokemon?.name,inputValue);
 
+    const inputRef = useRef(null);
+
     const navigate = useNavigate();
     const onPokePage=()=>{
-      navigate(`../pokedex/${whoPokemon.name}`)
+        if(compare || counter ===  0){
+            navigate(`../pokedex/${whoPokemon.name}`)
+        } 
     }
-
+    
     useEffect(() => {
         setTimeout(() => {
             setIsOpenModal(false)
@@ -57,6 +61,7 @@ export const WhoThatPokemonPage = () => {
 
     const handleClick=(name)=>{
         setNamePokemon(name);
+        inputRef.current.focus();
         setPokemonsMatch([]);
     }
 
@@ -70,15 +75,17 @@ export const WhoThatPokemonPage = () => {
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="text"
+                        ref={inputRef}
                         placeholder="ingresar nombre"
                         value={namePokemon}
                         onChange={(e)=>searchPokemon(e.target.value)}
+                        autoFocus
                     />
 
                     {/* mostrar sugerencias */}
                     <ul className="ul-autocomplete">
                         {pokemonsMatch && pokemonsMatch.map((item)=>(
-                                <li onClick={(e)=>handleClick(e.target.innerHTML)} 
+                                <li className="li-autocomplete" onClick={(e)=>handleClick(e.target.innerHTML)} 
                                     key={item.name}
                                 >{item.name}</li>
                         ))}

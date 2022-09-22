@@ -154,7 +154,7 @@ body{
 
 .buttonNavigate{
     background-color: #ec6f10e6;
-    font-size: 1.5em;
+    font-size: 25px;
     border-radius: 5px;
     width: 175px;
     color: white;
@@ -164,6 +164,8 @@ body{
     justify-content: space-evenly;
     align-items: center;
     border-color: #ec6f10e6;
+    padding: 0.6em 0 0.6em 0;
+    
 }
 
 .boton-pagination{
@@ -172,12 +174,13 @@ body{
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 0.9375rem 1em;
     color: white;
     display: flex;
     justify-content: space-evenly;
+    padding: 0.8em 0 0.8em 0;
     border-color: #ec6f10e6;
     text-transform: capitalize;
+    width: 14vw;
 }
 
 .container-card{
@@ -247,9 +250,8 @@ body{
     left: 0;
     z-index: 9999;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    margin: calc(43vh - 7.25vh) calc(50vw - 10.5vw);
+    margin: calc(41.5vh - 7.25vh) calc(50vw - 10.5vw);
     border-radius: 5px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
@@ -259,7 +261,11 @@ body{
     color: rgb(60, 59, 59);
     cursor: pointer;
 }
-
+.li-autocomplete{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 /*whothatpokemon Ternario */
 .who-img-hidden{

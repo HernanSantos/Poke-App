@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { PokeCard } from "../components/PokeCard"
-import {getPokemonList, getPokemon, getDateApiList} from "../helpers/index"
+import {getPokemonList, getDateApiList, getWhoThatPokemon} from "../helpers/index"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useForm } from "../hooks/useForm";
+import { useNavigate } from "react-router-dom";
 
 export const PokedexPage = () => {
 
@@ -26,10 +27,13 @@ export const PokedexPage = () => {
     getPokemonsPage();
   },[pagine])
 
+
+  const navigate = useNavigate();
+
   const handleSubmit = async(event)=>{
     event.preventDefault();
-    const dataPage = await getPokemon(valueForm);
-    setInfoPoke(dataPage);
+    const dataPage = await getWhoThatPokemon(valueForm);
+    navigate(`${dataPage.name}`,{replace:true})
     reset();
   }
 
@@ -40,6 +44,7 @@ export const PokedexPage = () => {
             <form onSubmit={handleSubmit}>
               <input 
                 type="text" 
+                name="searchPokemon"
                 placeholder="buscar pokémon"
                 value={valueForm}
                 onChange={handleChange}
@@ -62,9 +67,9 @@ export const PokedexPage = () => {
           
       <div className="container-card"> 
             {   
-              infoPoke.map(pokes => (
+              infoPoke?.map((pokes,index) => (
                 <div>
-                  <PokeCard key={pokes.id} {...pokes}/>
+                  <PokeCard key={index} {...pokes}/>
                 </div>
               ))
             }
