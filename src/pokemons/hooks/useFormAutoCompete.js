@@ -7,6 +7,8 @@ export const useFormAutoCompete = () => {
     const [pokemons, setPokemons] = useState([]); //150 pokemons
     const [pokemonsMatch, setPokemonsMatch] = useState([]); 
 
+    console.log(namePokemon)
+
     //nombres 150 pokemon
     useEffect(() => {
         const loadPokemons = async()=>{
@@ -20,10 +22,11 @@ export const useFormAutoCompete = () => {
 
     //buscar y guardar
     const searchPokemon=(text)=>{
+        setNamePokemon(text);
+        
         if(!text){
             setPokemonsMatch([])
         }else{
-            setNamePokemon(text);
             let matches = pokemons.filter((pokemon)=>{
                 const regex = new RegExp(`${text}`, "gi");
                 return pokemon.name.match(regex)

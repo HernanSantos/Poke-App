@@ -56,8 +56,6 @@ export const WhoThatPokemonPage = () => {
     }
 
     const handleClick=(name)=>{
-        console.log(name)
-        console.log("me hicieron click")
         setNamePokemon(name);
         setPokemonsMatch([]);
     }
@@ -76,19 +74,24 @@ export const WhoThatPokemonPage = () => {
                         value={namePokemon}
                         onChange={(e)=>searchPokemon(e.target.value)}
                     />
+
                     {/* mostrar sugerencias */}
-                    {pokemonsMatch && pokemonsMatch.map((item)=>(
-                        <div>
-                            <span onClick={(e)=>handleClick(e.target.innerHTML)}>{item.name}</span>
-                        </div>
-                    ))}
+                    <ul className="ul-autocomplete">
+                        {pokemonsMatch && pokemonsMatch.map((item)=>(
+                                <li onClick={(e)=>handleClick(e.target.innerHTML)} 
+                                    key={item.name}
+                                >{item.name}</li>
+                        ))}
+                    </ul>
                 </form>
+
                 <div className={`modal ${isOpenModal && counter != 0 && "modal-open"}`}>
                     <div className="modal_dialog">
                         <span>¡¡Fallaste!!</span>
                         <span>intetos disponibles: {counter}</span>
                     </div>
                 </div>
+
             </div>
 
             <CluePokemon types={whoPokemon?.types}/>
