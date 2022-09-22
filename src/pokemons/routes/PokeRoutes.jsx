@@ -1,8 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { PokedexPage } from "../pages/PokedexPage"
-import { PokemonPage } from "../pages/PokemonPage"
-import { WhoThatPokemonPage } from "../pages/WhoThatPokemonPage"
-
+import { PokedexPage, PokemonPage, WhoThatPokemonPage } from "../pages"
 
 export const PokeRoutes = () => {
   return (
