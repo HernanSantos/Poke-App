@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { PokeCard } from "../components/PokeCard"
-import {getPokemonList, getDateApiList, getWhoThatPokemon} from "../helpers/index"
+import {getPokemonList, getDateApiList, getWhoThatPokemon} from "../helpers"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { useForm } from "../hooks/useForm";
+import { useForm } from "../hooks";
 import { useNavigate } from "react-router-dom";
 
 export const PokedexPage = () => {

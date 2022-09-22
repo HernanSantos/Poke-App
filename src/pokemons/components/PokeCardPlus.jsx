@@ -1,4 +1,4 @@
-import { usePagination } from '../hooks/usePagination';
+import { usePagination } from '../hooks';
 import { useNavigate } from 'react-router-dom';
 
 import MaleIcon from '@mui/icons-material/Male';

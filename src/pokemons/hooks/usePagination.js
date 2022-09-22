@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPokemon } from "../helpers/getPokemon";
+import { getPokemon } from "../helpers";
 
 
 export const usePagination = (next=1,prev=3) => {

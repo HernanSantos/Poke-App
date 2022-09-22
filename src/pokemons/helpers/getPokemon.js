@@ -1,4 +1,4 @@
-import { female, male, genderless } from "./index";
+import { female, male, genderless } from "./getGender";
 
 //obtener nombre + id
 export const getPokemon = async (pokemon) => {
