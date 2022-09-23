@@ -101,6 +101,21 @@ body{
 .nav-menu{
     display: flex;
 }
+
+.toggle-collapse{
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin: 0.4em 0.7em;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.toggle-collapse:hover{
+    color: yellow;
+}
 /*Navbar*/
 
 
@@ -156,7 +171,7 @@ body{
     background-color: #ec6f10e6;
     font-size: 20px;
     border-radius: 5px;
-    width: 7em;
+    width: 130px;
     color: white;
     margin: 1em;
     box-shadow: 5px 10px 18px #888888;
@@ -169,17 +184,16 @@ body{
 
 .boton-pagination{
     background-color: #ec6f10e6;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
     display: flex;
-    justify-content: space-evenly;
-    padding: 0.8em 0 0.8em 0;
+    padding: 0.2em 0.1em 0.2em 0.1em;
     border-color: #ec6f10e6;
     text-transform: capitalize;
-    width: 14vw;
+    width: 36vw;
 }
 
 .container-card{
@@ -323,9 +337,8 @@ body{
 /*pokedex-pokemon-info*/
 .siguiente-anterior{
     display: flex;
-    width: 60%;
+    width: 100%;
     font-size: 40px;
-    max-width: 800px;
     margin: auto;
     text-align: center;
     justify-content: space-between;
@@ -335,10 +348,8 @@ body{
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 70%;
-    max-width: 1100px;
+    width: 80%;
     align-items: center;
-    padding-top: 10px;
     font-size: 25px;
 }
 
@@ -433,6 +444,26 @@ body{
 .img-logo{
 }
 
+.navbar-icon{
+    display: inline-block;
+    float: none;
+}
+.toggle-collapse{
+    display: inline-block;
+}
+.navbar-nav{
+    color: white;
+    padding: 0%;
+}
+
+.navbar-collapse{
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    height: 0vh;
+    transition: all 499ms ease;
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 .img-logo{
@@ -447,7 +478,25 @@ body{
 .form-pokemon{
     width: 400px;
 }
+.buttonNavigate{
+    width: 175px;
+    font-size: 25px;
 }
+.boton-pagination{
+
+}
+.siguiente-anterior{
+    display: flex;
+    width: 100%;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    justify-content: space-between;
+}
+.pokemon-info-container{
+
+}
+
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
@@ -460,5 +509,19 @@ body{
 .buttonNavigate{
     width: 175px;
     font-size: 25px;
+}
+.boton-pagination{
+
+}
+.siguiente-anterior{
+    display: flex;
+    width: 100%;
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    justify-content: space-between;
+}
+.pokemon-info-container{
+
 }
 } 

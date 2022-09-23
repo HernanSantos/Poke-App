@@ -4,18 +4,18 @@ export const Navbar = () => {
 
   return (
     <nav className="navbar">
-        <div className="navbar-icon">
-            <NavLink className="navbar-link" to="/pokedex">
-                <img src="https://res.cloudinary.com/dtfmesfi0/image/upload/v1663874318/pokemon-app/zla4yhb6jl9ngrmmpvcw.png" alt="icono-pokemon" />
-            </NavLink>
-        </div>
-        
+        <NavLink className="navbar-brand" to="/pokedex">
+            <img src="https://res.cloudinary.com/dtfmesfi0/image/upload/v1663874318/pokemon-app/zla4yhb6jl9ngrmmpvcw.png" alt="icono-pokemon" />
+        </NavLink>
+        <button className="toggle-collapse">
+            boton
+        </button>
 
-        <div className="nav-menu">
-            <NavLink className="navbar-link" to="/pokedex">
+        <div className="navbar-collapse">
+            <NavLink className="navbar-nav" to="/pokedex">
                 Inicio
             </NavLink>
-            <NavLink className="navbar-link" to="/whothatpokemon">
+            <NavLink className="navbar-nav" to="/whothatpokemon">
                 Adivina el pokémon
             </NavLink>
         </div>
