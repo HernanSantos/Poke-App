@@ -33,7 +33,8 @@ export const PokedexPage = () => {
   const handleSubmit = async(event)=>{
     event.preventDefault();
     const dataPage = await getWhoThatPokemon(valueForm);
-    navigate(`${dataPage.name}`,{replace:true})
+    console.log(dataPage.name)
+    navigate(`/pokedex/${dataPage.name}`,{replace:true})
     reset();
   }
 
