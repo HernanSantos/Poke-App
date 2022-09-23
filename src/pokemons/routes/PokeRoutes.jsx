@@ -6,11 +6,11 @@ export const PokeRoutes = () => {
     <>
       <div className="container-pages">
         <Routes>
-          <Route path="pokedex" element={<PokedexPage/>}/>
-          <Route path="whothatpokemon" element={<WhoThatPokemonPage/>}/>
-          <Route path="pokedex/:id" element={<PokemonPage/>}/>
+          <Route path="/" element={<PokedexPage/>}/>
+          <Route path="/whothatpokemon" element={<WhoThatPokemonPage/>}/>
+          <Route path="/pokedex/:id" element={<PokemonPage/>}/>
 
-          <Route path="*" element={<Navigate to="/pokedex"/>}/>
+          <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
       </div>
     </>
