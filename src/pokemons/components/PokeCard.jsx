@@ -6,7 +6,7 @@ export const PokeCard = ({id,name,front_default}) => {
   const navigate = useNavigate();
 
   const onPokePage=()=>{
-    navigate(`${name}`,{replace:true})
+    navigate(`/pokedex/${name}`,{replace:true})
   }
   
   const numeroPokemon = () =>{
