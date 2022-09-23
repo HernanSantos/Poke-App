@@ -7,7 +7,7 @@ export const PokeApp = () => {
 
   return (
 
-    <div>
+    <div className='container-pokeapp'>
       <Navbar/>
       <PokeLogo/>
       <PokeRoutes/>
