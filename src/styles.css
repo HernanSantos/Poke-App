@@ -60,14 +60,9 @@
     flex-direction: column;
 }
 
-/* .container-pokeapp{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 500px, 500px, 1fr
-} */
 
 .img-logo{
-    width: 90vw;
+    width: 500px;
 }
 
 body{
@@ -78,18 +73,30 @@ body{
 /*Navbar*/
 .navbar{
     background-color: #ec6f10e6;
-    width: 100vw;;
+    width: 100vw;
+    color: white;
+}
+.navbar-collapse{
+    flex-basis: 0;
+}
+
+.navbar-nav{
     display: flex;
-    justify-content:center
+    width: calc(100% - 90px);
+    flex-direction: row;
+    justify-content: center;
 }
 
 .navbar-link{
-    color: #fff;
-    font-size: 25px;
-    display: flex;
+    color: white;
     text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
+    font-size: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.toggle-collapse{
+    display: none;
 }
 
 .navbar-linkcurrent:link,
@@ -98,30 +105,12 @@ body{
     color: yellow;
 }
 
-.nav-menu{
-    display: flex;
-}
-
-.toggle-collapse{
-    float: right;
-    width: 50px;
-    height: 50px;
-    margin: 0.4em 0.7em;
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-    border-radius: 3px;
-    cursor: pointer;
-}
-.toggle-collapse:hover{
-    color: yellow;
-}
 /*Navbar*/
 
 
 .form-pokemon{
     padding: 10px 0;
-    width: 300px;
+    width: 400px;
     max-width: 100%;
 }
 
@@ -169,9 +158,9 @@ body{
 
 .buttonNavigate{
     background-color: #ec6f10e6;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 5px;
-    width: 130px;
+    width: 175px;
     color: white;
     margin: 1em;
     box-shadow: 5px 10px 18px #888888;
@@ -184,16 +173,18 @@ body{
 
 .boton-pagination{
     background-color: #ec6f10e6;
-    font-size: 20px;
+    font-size: 30px;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
     display: flex;
-    padding: 0.2em 0.1em 0.2em 0.1em;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0.7em 0.1em 0.7em 0.1em;
     border-color: #ec6f10e6;
     text-transform: capitalize;
-    width: 36vw;
+    width: 300px;
 }
 
 .container-card{
@@ -337,11 +328,11 @@ body{
 /*pokedex-pokemon-info*/
 .siguiente-anterior{
     display: flex;
-    width: 100%;
+    width: 60%;
     font-size: 40px;
     margin: auto;
     text-align: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .pokemon-info-container{
@@ -440,88 +431,86 @@ body{
 
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-.img-logo{
-}
+@media only screen and (max-width: 415px) {
+    .navbar{
+        display: block;
+        background-color: #ec6f10e6;
+        width: 100%;
+        color: white;
+    }
+    
+    .navbar-brand{
+        float:left;
+        padding: 0.2em 0.7em;
+    }
+    
+    .navbar-link{
+        color: white;
+        font-size: 25px;
+        display: block;        
+        text-decoration: none;
+        padding: 0 1rem;
+        height: 100%;
+    }
+    .navbar-nav{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }  
+    
+    .toggle-collapse{
+        float: right;
+        width: 55px;
+        height: 55px;
+        margin: 0.4em 0.7em;
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        border-radius: 3px;
+        cursor: pointer;
+        display: inline-block;
+    }
+    .img-logo{
+        width: 350px;
+    }
 
-.navbar-icon{
-    display: inline-block;
-    float: none;
-}
-.toggle-collapse{
-    display: inline-block;
-}
-.navbar-nav{
-    color: white;
-    padding: 0%;
-}
-
-.navbar-collapse{
-    width: 100%;
-    overflow: hidden;
-    text-align: center;
-    height: 0vh;
-    transition: all 499ms ease;
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-.img-logo{
-} 
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-.img-logo{
-    width: 50vw;
-}
-.form-pokemon{
-    width: 400px;
-}
-.buttonNavigate{
-    width: 175px;
-    font-size: 25px;
-}
-.boton-pagination{
-
-}
-.siguiente-anterior{
-    display: flex;
-    width: 100%;
-    font-size: 40px;
-    margin: auto;
-    text-align: center;
-    justify-content: space-between;
-}
-.pokemon-info-container{
-
-}
-
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-.img-logo{
-    width: 25vw;
-}
-.form-pokemon{
-    width: 400px;
-}
-.buttonNavigate{
-    width: 175px;
-    font-size: 25px;
-}
-.boton-pagination{
-
-}
-.siguiente-anterior{
-    display: flex;
-    width: 100%;
-    font-size: 40px;
-    margin: auto;
-    text-align: center;
-    justify-content: space-between;
-}
-.pokemon-info-container{
-
-}
-} 
+    .navbar-collapse{
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+        transition: all 499ms ease;
+        height: 0vh;
+    }
+    .collapse-revealed{
+        height: 10vh;
+    }
+    .collapse-hidden{
+        height: 0vh;
+    }
+    .form-pokemon{
+        width: 300px;
+    }
+    .buttonNavigate{
+        font-size: 20px;
+        width: 130px;
+    }
+    .siguiente-anterior{
+        width: 100%;
+        justify-content: space-between;
+    }
+    .boton-pagination{
+        background-color: #ec6f10e6;
+        font-size: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.3em 0.1em 0.3em 0.1em;
+        border-color: #ec6f10e6;
+        text-transform: capitalize;
+        width: 150px;
+    }
