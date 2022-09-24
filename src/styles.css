@@ -247,15 +247,15 @@ body{
 /*pokemon list autocomplete*/
 .ul-autocomplete{
     background-color: rgba(228, 220, 220, 0.785);
-    width: 21vw;
-    max-height: 10vh;
+    width: 400px;
+    max-height: 120px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
     display: flex;
     flex-direction: column;
-    margin: calc(41.5vh - 7.25vh) calc(50vw - 10.5vw);
+    margin: calc(42.5vh - 7.25vh) calc(50vw - 10.5vw);
     border-radius: 5px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
@@ -513,4 +513,19 @@ body{
         border-color: #ec6f10e6;
         text-transform: capitalize;
         width: 150px;
+    }
+    .nombre-whothatpokemon-span{
+        font-size: 25px;
+    }
+    .who-pokemon-container{
+        width: 80%;
+    } 
+    .xl{
+        width: 300px;
+    }
+    .ul-autocomplete{
+        width: 300px;
+        max-height: 150px;
+        margin: calc(40.5vh - 7.25vh) calc(24vw - 10.5vw);
+
     }
