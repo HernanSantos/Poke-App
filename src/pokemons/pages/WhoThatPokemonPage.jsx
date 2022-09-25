@@ -72,7 +72,7 @@ export const WhoThatPokemonPage = () => {
             </div>
             
             <div className="form-pokemon">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="autocomplete-submit">
                     <input 
                         type="text"
                         ref={inputRef}

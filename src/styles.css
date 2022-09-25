@@ -245,31 +245,31 @@ body{
 
 
 /*pokemon list autocomplete*/
-.ul-autocomplete{
-    background-color: rgba(228, 220, 220, 0.785);
+.autocomplete-submit{
     width: 400px;
-    max-height: 120px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    margin: calc(42.5vh - 7.25vh) calc(50vw - 10.5vw);
-    border-radius: 5px;
-    overflow:scroll;
-    -webkit-overflow-scrolling: touch;
-    list-style: none;
-    font-size: 20px;
+    position: sticky;
+}
+.ul-autocomplete{
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
     padding: 0;
-    color: rgb(60, 59, 59);
-    cursor: pointer;
-}
-.li-autocomplete{
+    background-color: #88888898;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    max-height: 200px;
+    overflow-y:auto;
 }
+.ul-autocomplete li{
+    color: black;
+    padding: 10px;
+    width: calc(100% - 20px);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    
+}
+/*pokemon list autocomplete*/
+
 
 /*whothatpokemon Ternario */
 .who-img-hidden{
@@ -525,7 +525,10 @@ body{
     }
     .ul-autocomplete{
         width: 300px;
-        max-height: 150px;
-        margin: calc(40.5vh - 7.25vh) calc(24vw - 10.5vw);
-
+        max-height: 130px;
+        font-size: 20px;
+    }
+    .autocomplete-submit{
+        width: 300px;
+        position: sticky;
     }
