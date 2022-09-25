@@ -5,8 +5,8 @@
 
 .modal{
     background-color: rgba(255, 255, 255, 0.758);
-    width: 15vw;
-    height: 15vh;
+    width: 300px;
+    height: 150px;
     position: fixed;
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: calc(50vh - 7.25vh) calc(50vw - 7.25vw);
+    margin: calc(50vh - 7.25vh) calc(50vw - 150px);
     border-radius: 15px;
     opacity: 0.8;
 }
@@ -250,17 +250,17 @@ body{
     position: sticky;
 }
 .ul-autocomplete{
-    position: absolute;
+    background-color: #8580803e;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #88888898;
     width: 100%;
-    max-height: 200px;
+    max-height: 150px;
     overflow-y:auto;
 }
 .ul-autocomplete li{
-    color: black;
+    color: rgb(53, 52, 52);
+    font-size: 20px;
     padding: 10px;
     width: calc(100% - 20px);
     font-weight: bold;
@@ -531,4 +531,9 @@ body{
     .autocomplete-submit{
         width: 300px;
         position: sticky;
+    }
+    .modal{
+        width: 300px;
+        height: 150px;
+        margin: calc(50vh - 7.25vh) calc(50vw - 150px);
     }
