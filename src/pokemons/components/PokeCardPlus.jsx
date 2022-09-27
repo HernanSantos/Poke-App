@@ -19,8 +19,7 @@ export const PokeCardPlus = ({
   front_default}) => {
 
   const numeroPokemon = (id) =>{
-    const nuevoId = id.toString().padStart(3,"0")
-    return nuevoId
+    return id.toString().padStart(3,"0")
   }
 
   const {nextPoke,prevPoke} = usePagination(id+1,id-1);
@@ -31,7 +30,6 @@ export const PokeCardPlus = ({
     navigate(`../pokedex/${name}`)
     window.location.reload()
   }
-  console.log(prevPoke.id)
   return (
     <div className='pokemon-info-container'>
 

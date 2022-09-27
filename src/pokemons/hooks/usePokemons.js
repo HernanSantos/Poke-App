@@ -17,5 +17,5 @@ export const usePokemons = (id) => {
       infoPokemon();
     }, [])
     
-  return {infoPoke,isLoading}
+  return [infoPoke,isLoading]
 }
