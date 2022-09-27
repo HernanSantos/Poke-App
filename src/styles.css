@@ -546,7 +546,7 @@ body{
     }
     .siguiente-anterior{
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
     .boton-pagination{
         background-color: #ec6f10e6;
@@ -555,13 +555,19 @@ body{
         margin-top: 10px;
         margin-bottom: 10px;
         color: white;
-        display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0.3em 0.1em 0.3em 0.1em;
         border-color: #ec6f10e6;
         text-transform: capitalize;
         width: 150px;
+    }
+    .view-input-hidden{
+        display: none;
+    }
+    .view-input-revealed{
+        display: flex;
+        justify-content: space-between;
     }
     .nombre-whothatpokemon-span{
         font-size: 25px;
