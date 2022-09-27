@@ -51,6 +51,9 @@ export const PokedexPage = () => {
                 onChange={handleChange}
               />
             </form>
+            <div className="div-button-submit">
+              <button className="button-submit" onClick={handleSubmit}>Enviar</button>
+            </div>
           </div>
 
           <nav aria-label="Page navigation example">
@@ -66,7 +69,7 @@ export const PokedexPage = () => {
             </div>
           </nav>
           
-      <div className="container-card"> 
+      <div className="container-card "> 
             {   
               infoPoke?.map((pokes,index) => (
                 <div>

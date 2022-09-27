@@ -12,7 +12,7 @@ export const useComparePokemons = (namePokemon, valueForm) => {
     useEffect(() => {
         if(namePokemon){
             setCompare(false);
-            if(namePokemon?.toLowerCase() === valueForm){
+            if(namePokemon?.toLowerCase() === valueForm.toLowerCase()){
                 setCompare(true)
             }else{
                 setCompare(false)
@@ -28,5 +28,5 @@ export const useComparePokemons = (namePokemon, valueForm) => {
         setIsOpenModal();
     }
 
-  return [compare,counter,isOpenModal,resetValue,setIsOpenModal]
+  return [compare,counter,isOpenModal,setCounter,resetValue,setIsOpenModal]
 }

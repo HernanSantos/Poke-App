@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { Loading } from "../components/Loading";
 import { PokeCardPlus } from "../components/PokeCardPlus";
 import {usePokemons} from "../hooks"
 
@@ -9,20 +10,14 @@ export const PokemonPage = () => {
   const {infoPoke,isLoading} = usePokemons(id);
 
   return (
-
-  <>
-    {
-      isLoading && (<h2>Cargando...</h2>)
-    }
-
-      {
-        infoPoke.map(poke=>(
-          <PokeCardPlus
-            key = {poke.id}
-            {...poke}/>
-        ))
-      }
-  </>
+    <div>
+        {(isLoading) 
+          ? <Loading />
+          : infoPoke.map(poke=>(
+              <PokeCardPlus key = {poke.id} {...poke}/>
+            ))
+        }
+    </div>
 )
 }
 

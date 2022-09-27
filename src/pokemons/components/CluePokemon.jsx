@@ -21,8 +21,13 @@ export const CluePokemon = ({types=[]}) => {
     
   return (
     <div className="div-clue">
-        <span className={`${buttonState ? "span-clue-revealed" :"span-clue-hide"}`}>Este pokemon es tipo {typePokemons} </span>
-        <button className="button-clue" disabled={buttonState} onClick={()=> setButtonState(true)}>
+        <span className={`${buttonState ? "span-clue-revealed" :"span-clue-hide"}`}>
+            Este pokemon es tipo {typePokemons} 
+        </span>
+        <button className={`button-clue ${!buttonState ?"enabled" :"disabled"}`} 
+                disabled={buttonState} 
+                onClick={()=> setButtonState(true)}
+        >
             Pista
         </button>
     </div>

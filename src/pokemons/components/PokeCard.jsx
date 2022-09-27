@@ -15,7 +15,7 @@ export const PokeCard = ({id,name,front_default}) => {
   }
 
   return (
-    <div className="card xs" onClick={onPokePage}>
+    <div className="card xs animate__animated animate__pulse" onClick={onPokePage}>
         <img src={front_default} className="card-img" alt="imagen_pokemon"/>
         
         <div className="idContainer">
@@ -25,3 +25,4 @@ export const PokeCard = ({id,name,front_default}) => {
     </div>
   )
 }
+[ ] 

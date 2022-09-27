@@ -13,7 +13,7 @@ export const WhoThatPokemonPage = () => {
     //hooks
     const [namePokemon,pokemonsMatch,setPokemonsMatch,setNamePokemon,searchPokemon,reset] = useFormAutoCompete();
     const [randomPokemon,newRandomPokemon] = useRandomPokemon();
-    const [compare,counter,isOpenModal,resetValue,setIsOpenModal] = useComparePokemons(whoPokemon?.name,inputValue);
+    const [compare,counter,isOpenModal,setCounter,resetValue,setIsOpenModal] = useComparePokemons(whoPokemon?.name,inputValue);
 
     const inputRef = useRef(null);
 
@@ -56,6 +56,7 @@ export const WhoThatPokemonPage = () => {
     const handleSubmit = (event) =>{
         event.preventDefault();
         setInputValue(namePokemon);    
+        setPokemonsMatch([]);
         reset();
     }
 
@@ -82,15 +83,20 @@ export const WhoThatPokemonPage = () => {
                         autoFocus
                     />
 
-                    {/* mostrar sugerencias */}
                     <ul className="ul-autocomplete">
                         {pokemonsMatch && pokemonsMatch.map((item)=>(
-                                <li className="li-autocomplete" onClick={(e)=>handleClick(e.target.innerHTML)} 
-                                    key={item.name}
-                                >{item.name}</li>
+                                <li className="li-autocomplete" 
+                                    onClick={(e)=>handleClick(e.target.innerHTML)} 
+                                    key={item.name}>
+                                    {item.name}
+                                </li>
                         ))}
                     </ul>
+                    <div className="div-button-submit">
+              <button className="button-submit" onClick={handleSubmit}>Enviar</button>
+            </div>
                 </form>
+                
 
                 <div className={`modal ${isOpenModal && counter != 0 && "modal-open"}`}>
                     <div className="modal_dialog">
@@ -113,7 +119,9 @@ export const WhoThatPokemonPage = () => {
             </div>
 
             <div>
-                {(compare) && <span className="nombre-whothatpokemon">{whoPokemon?.name}</span>}
+                {
+                    (compare || counter === 0) && <span className="nombre-whothatpokemon">{whoPokemon?.name}</span>
+                }
             </div>
 
             <div className="whoPokemonCard" onClick={onPokePage}>
@@ -123,6 +131,13 @@ export const WhoThatPokemonPage = () => {
                         className={`card  xl ${(compare || counter ===  0) ? "who-img-revealed" : "who-img-hidden"}`}
                     />
                 }
+            </div>
+            
+            <div className="div-surrender">
+                <button className={`surrender ${counter != 0 && !compare ? "view-input-revealed" :"view-input-hidden"}`}
+                        onClick={()=>setCounter(0)}>
+                    ¡Me rindo!
+                </button>
             </div>
 
             <div>
