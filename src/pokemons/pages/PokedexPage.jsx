@@ -27,7 +27,6 @@ export const PokedexPage = () => {
     getPokemonsPage();
   },[pagine])
 
-
   const navigate = useNavigate();
 
   const handleSubmit = async(event)=>{
@@ -37,7 +36,6 @@ export const PokedexPage = () => {
     navigate(`/pokedex/${dataPage.name}`,{replace:true})
     reset();
   }
-
   return (
     <div className="search-container">
 

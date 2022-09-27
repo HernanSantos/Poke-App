@@ -31,16 +31,16 @@ export const PokeCardPlus = ({
     navigate(`../pokedex/${name}`)
     window.location.reload()
   }
-
+  console.log(prevPoke.id)
   return (
     <div className='pokemon-info-container'>
 
       <div className='siguiente-anterior'>
-        <button className='boton-pagination' onClick={()=>onPokePage(prevPoke.name)}>
+        <button className={`boton-pagination ${prevPoke?.id ?"view-input-revealed" :"view-input-hidden"}`} onClick={()=>onPokePage(prevPoke.name)}>
         <ArrowCircleLeftIcon fontSize="large"/> #{numeroPokemon(prevPoke.id)} {prevPoke.name}
         </button>
 
-        <button className='boton-pagination' onClick={()=>onPokePage(nextPoke.name)}>
+        <button className="boton-pagination" onClick={()=>onPokePage(nextPoke.name)}>
         {nextPoke.name} #{numeroPokemon(nextPoke.id)} <ArrowCircleRightIcon fontSize="large"/>
         </button>
       </div>
