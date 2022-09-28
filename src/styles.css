@@ -2,7 +2,12 @@
     margin: 0;
     padding: 0;
 }
+body{
+    color: rgb(0, 0, 0);
+    font-family: "Roboto", sans-serif;
+}
 
+/*Modal intentos disponibles*/
 .modal{
     background-color: rgba(255, 255, 255, 0.758);
     width: 300px;
@@ -32,6 +37,9 @@
     align-items: center;
     font-size: 28px;
 }
+/*Modal intentos disponibles*/
+
+/*clue pokemons*/
 .span-clue-hide{
     display: none;
 }
@@ -69,16 +77,7 @@
     flex-direction: column;
     text-align: center;
 }
-
-
-.img-logo{
-    width: 500px;
-}
-
-body{
-    color: rgb(0, 0, 0);
-    font-family: "Roboto", sans-serif;
-}
+/*clue pokemons*/
 
 /*Navbar*/
 .navbar{
@@ -114,10 +113,9 @@ body{
 .navbar-link:hover{
     color: yellow;
 }
-
 /*Navbar*/
 
-
+/*form input*/
 .form-pokemon{
     padding: 10px 0;
     width: 400px;
@@ -134,9 +132,6 @@ body{
     box-shadow: 5px 10px 18px #888888;
 }
 
-.form-pokemon input:focus{
-    border-color: rgba(159, 68, 165, 0.774);    
-}
 .div-button-submit{
     display: flex;
     justify-content: center;
@@ -151,6 +146,7 @@ body{
     box-shadow: 2px 5px 18px #888888;
     margin-top: 10px;
 }
+/*form input*/
 
 /*Logo-container*/
 .logo-container{
@@ -158,12 +154,16 @@ body{
     justify-content: center;
 }
 
+.img-logo{
+    width: 500px;
+}
+/*Logo-container*/
+
+/*pokedex*/
 .search-container{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
 }
 
 .idContainer{
@@ -178,7 +178,6 @@ body{
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
 
 .buttonNavigate{
     background-color: #ec6f10e6;
@@ -217,12 +216,11 @@ body{
     gap: 0px;
     margin: 20px 20px 0px 20px;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
 }
+/*pokedex*/
 
 /*whothatpokemon*/
-
 .who-pokemon-container{
     display: flex;
     flex-direction: column;
@@ -230,7 +228,6 @@ body{
     width: 60%;
     max-width: 800px;
     align-items: center;
-    justify-content: center;
 } 
 
 .nombre-whothatpokemon{
@@ -255,9 +252,9 @@ body{
     margin-top: 10px;
     box-shadow: 5px 10px 18px #888888;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
     border-color: #ec6f10e6;
+    align-items: center;
 }
 
 .xl{
@@ -267,7 +264,7 @@ body{
 .xs{
     width: 300px;
 }
-
+/*whothatpokemon*/
 
 /*pokemon list autocomplete*/
 .autocomplete-submit{
@@ -306,11 +303,11 @@ body{
     display: none;
 }
 .view-input-revealed{
-    display: inline;
+    display: flex;
 }
-/* Ternario */
+/*whothatpokemon Ternario */
 
-
+/*pokemon card*/
 .card{
     background-color: #ec6f10e6;
     display: flex;
@@ -328,7 +325,6 @@ body{
     object-fit: contain;
     margin-top: 5px;
 }
-
 
 .text-container{
     display: flex;
@@ -348,6 +344,8 @@ body{
     margin: 3px;
 
 }
+/*pokemon card*/
+
 
 /*pokedex-pokemon-info*/
 .siguiente-anterior{
@@ -464,6 +462,7 @@ body{
     margin-top: 10px;
     padding: 5px;
     box-shadow: 5px 10px 18px #888888;
+    justify-content: center;
 }
 
 /*loading*/
@@ -567,7 +566,7 @@ body{
     }
     .view-input-revealed{
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
     }
     .nombre-whothatpokemon-span{
         font-size: 25px;
