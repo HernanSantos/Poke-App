@@ -4,11 +4,9 @@ import { useNavigate } from "react-router-dom"
 export const PokeCard = ({id,name,front_default}) => {
 
   const navigate = useNavigate();
-
   const onPokePage=()=>{
     navigate(`/pokedex/${name}`,{replace:true})
   }
-  
   const numeroPokemon = () =>{
     const nuevoId = id.toString().padStart(3,"0")
     return nuevoId
@@ -25,4 +23,3 @@ export const PokeCard = ({id,name,front_default}) => {
     </div>
   )
 }
-[ ] 
