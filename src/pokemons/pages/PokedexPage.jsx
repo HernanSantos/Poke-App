@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import {useTranslation} from "react-i18next";
 import { PokeCard } from "../components/PokeCard"
 import {getPokemonList, getDateApiList, getWhoThatPokemon} from "../helpers"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -8,6 +9,7 @@ import { useForm } from "../hooks";
 
 export const PokedexPage = () => {
 
+  const [t, i18n] = useTranslation("global")
   const [nextPagine, setNextPagine] = useState();
   const [prevPagine, setPrevPagine] = useState();
   const [pagine, setPagine] = useState();
@@ -44,13 +46,13 @@ export const PokedexPage = () => {
               <input 
                 type="text" 
                 name="searchPokemon"
-                placeholder="buscar pokémon"
+                placeholder={t("page-pokemon.search")}
                 value={valueForm}
                 onChange={handleChange}
               />
             </form>
             <div className="div-button-submit">
-              <button className="button-submit" onClick={handleSubmit}>Enviar</button>
+              <button className="button-submit" onClick={handleSubmit}>{t("page-pokemon.submit")}</button>
             </div>
           </div>
 
@@ -58,11 +60,11 @@ export const PokedexPage = () => {
             <div className="pagination justify-content-end">
 
               <div className="page-item">
-                  <button className="buttonNavigate" onClick={()=> {prevPagine !== null && setPagine(prevPagine)}}><ChevronLeftIcon/>Anterior</button>
+                  <button className="buttonNavigate" onClick={()=> {prevPagine !== null && setPagine(prevPagine)}}><ChevronLeftIcon/>{t("page-pokemon.prev")}</button>
               </div>
 
               <div className="page-item">
-                  <button className="buttonNavigate" onClick={()=>setPagine(nextPagine)}>Siguiente<ChevronRightIcon/></button>
+                  <button className="buttonNavigate" onClick={()=>setPagine(nextPagine)}>{t("page-pokemon.next")}<ChevronRightIcon/></button>
               </div>
             </div>
           </nav>

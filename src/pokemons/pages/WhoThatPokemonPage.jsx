@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react"
+import {useTranslation} from "react-i18next";
+
 import { useNavigate } from "react-router-dom";
 import { CluePokemon } from "../components/CluePokemon";
 import { getWhoThatPokemon } from "../helpers"
@@ -6,6 +8,7 @@ import { useRandomPokemon,useComparePokemons,useFormAutoCompete } from "../hooks
 
 export const WhoThatPokemonPage = () => {
 
+    const [t, i18n] = useTranslation("global")
     //state
     const [whoPokemon, setWhoPokemon] = useState();
     const [inputValue, setInputValue] = useState("")
@@ -69,7 +72,7 @@ export const WhoThatPokemonPage = () => {
   return (
         <div className="who-pokemon-container ">
             <div>
-                 <span className= "nombre-whothatpokemon-span">¿Quien es este pokémon?</span>
+                 <span className= "nombre-whothatpokemon-span">{t("page-who-what-pokemon.who-that-pokemon")}</span>
             </div>
             
             <div className="form-pokemon">
@@ -77,7 +80,7 @@ export const WhoThatPokemonPage = () => {
                     <input 
                         type="text"
                         ref={inputRef}
-                        placeholder="ingresar nombre"
+                        placeholder={t("page-who-what-pokemon.enter-name")}
                         value={namePokemon}
                         onChange={(e)=>searchPokemon(e.target.value)}
                         autoFocus
@@ -93,15 +96,15 @@ export const WhoThatPokemonPage = () => {
                         ))}
                     </ul>
                     <div className="div-button-submit">
-              <button className="button-submit" onClick={handleSubmit}>Enviar</button>
+              <button className="button-submit" onClick={handleSubmit}>{t("page-who-what-pokemon.submit")}</button>
             </div>
                 </form>
                 
 
                 <div className={`modal ${isOpenModal && counter != 0 && "modal-open"}`}>
                     <div className="modal_dialog">
-                        <span>¡¡Fallaste!!</span>
-                        <span>intetos disponibles: {counter}</span>
+                        <span>{t("page-who-what-pokemon.fail")}</span>
+                        <span>{t("page-who-what-pokemon.attempts-available")}: {counter}</span>
                     </div>
                 </div>
 
@@ -111,10 +114,10 @@ export const WhoThatPokemonPage = () => {
 
             <div className="win-lose">
             {
-                (compare && (counter >  0)) && <span className="nombre-whothatpokemon">¡Ganaste!</span>
+                (compare && (counter >  0)) && <span className="nombre-whothatpokemon">{t("page-who-what-pokemon.victory")}</span>
             }
             {
-                (counter ===  0)  && <span className="nombre-whothatpokemon">¡Perdiste!</span>
+                (counter ===  0)  && <span className="nombre-whothatpokemon">{t("page-who-what-pokemon.defeat")}</span>
             }
             </div>
 
@@ -136,7 +139,7 @@ export const WhoThatPokemonPage = () => {
             <div className="div-surrender">
                 <button className={`surrender ${counter != 0 && !compare ? "view-input-revealed" :"view-input-hidden"}`}
                         onClick={()=>setCounter(0)}>
-                    ¡Me rindo!
+                    {t("page-who-what-pokemon.surrender")}
                 </button>
             </div>
 
@@ -144,7 +147,7 @@ export const WhoThatPokemonPage = () => {
                 <button 
                     onClick={restoreValues} 
                     className={`button-start-game ${(counter ===  0 || compare) ? "view-input-revealed" :"view-input-hidden"}`}>
-                    Volver a intentar
+                    {t("page-who-what-pokemon.try-again")}
                 </button>
             </div>    
     </div>
