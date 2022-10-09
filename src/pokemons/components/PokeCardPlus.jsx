@@ -1,5 +1,6 @@
 import { usePagination } from '../hooks';
 import { useNavigate } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
@@ -18,6 +19,7 @@ export const PokeCardPlus = ({
   height,
   front_default}) => {
 
+  const [t, i18n] = useTranslation("global")
   const numeroPokemon = (id) =>{
     return id.toString().padStart(3,"0")
   }
@@ -54,7 +56,7 @@ export const PokeCardPlus = ({
         </div>
         
         <div className='type-pokemon'>
-          <h2>Tipo</h2>
+          <h2>{t("page-info-pokemon.type")}</h2>
           <div className='div-type-info'>
               {
                 typesPoke.map(type=>(
@@ -67,17 +69,17 @@ export const PokeCardPlus = ({
         <div className='info-container'>
 
           <div className="weight-info">
-            <span>Peso</span>
+            <span>{t("page-info-pokemon.weight")}</span>
             <span>{weight/10} kg</span>
           </div>
 
           <div className="height-info">
-            <span>Altura</span>
+            <span>{t("page-info-pokemon.height")}</span>
             <span>{height/10} m</span>
           </div>
           
           <div className='gender-info'>
-            <span>Sexo</span>
+            <span>{t("page-info-pokemon.gender")}</span>
             <div>
               {
               (genderlessPoke !== undefined && <span>Desconocido</span>)
@@ -92,7 +94,7 @@ export const PokeCardPlus = ({
           </div>
 
           <div className="habiliti-info">
-            <span className='habiliti-span'>Habilidad</span>
+            <span className='habiliti-span'>{t("page-info-pokemon.ability")}</span>
             <div className='habiliti-map'>
               {
                 abilitie.map(abili=>(

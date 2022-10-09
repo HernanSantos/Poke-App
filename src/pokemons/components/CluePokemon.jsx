@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
+import {useTranslation} from "react-i18next";
 
 
 export const CluePokemon = ({types=[]}) => {
-
+    
+    const [t, i18n] = useTranslation("global")
     const [buttonState, setButtonState] = useState(false)
 
     var typePokemons = ""
@@ -11,7 +13,7 @@ export const CluePokemon = ({types=[]}) => {
          if(i == types.length-1){
             typePokemons = typePokemons.concat(types[i]?.type.name)
         }else{
-            typePokemons = typePokemons.concat(types[i]?.type.name + " y ")
+            typePokemons = typePokemons.concat(types[i]?.type.name + " & ")
         } 
     }
     
@@ -22,13 +24,13 @@ export const CluePokemon = ({types=[]}) => {
   return (
     <div className="div-clue">
         <span className={`${buttonState ? "span-clue-revealed" :"span-clue-hide"}`}>
-            Este pokemon es tipo {typePokemons} 
+        {t("page-who-what-pokemon.text-glue")} {typePokemons} 
         </span>
         <button className={`button-clue ${!buttonState ?"enabled" :"disabled"}`} 
                 disabled={buttonState} 
                 onClick={()=> setButtonState(true)}
         >
-            Pista
+            {t("page-who-what-pokemon.glue")}
         </button>
     </div>
   )

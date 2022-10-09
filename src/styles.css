@@ -89,12 +89,17 @@ body{
 }
 .navbar-link{
     color: white;
-    margin-right: 2rem;
     text-decoration: none;
     font-size: 30px;
 }
 .navbar-collapse{
-    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+.navbar-collapse-center{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
 }
 .toggle-collapse{
     display: none;
@@ -108,9 +113,54 @@ body{
     color: white;
     background-color: transparent;
     border: none;
-    margin-right: 5px;
+    margin-right: 10px;
+}
+.dropdown-container{
+    display: flex;
+    align-items: center;
 }
 
+.menu-dropdown{
+    position: relative;
+    align-items: center;
+}
+.menu-dropdown ul{
+    top: 40px;
+    left: -60px;
+    font-size: 20px;
+    position: absolute;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    text-align: center;
+    padding: 0 10px;
+    background-color: rgba(176, 171, 171, 0.842);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.menu-dropdown ul li{
+    padding: 5px 0px 5px 0px;
+}
+.menu-dropdown ul li:hover{
+    color: yellow;
+}
+.arrow-ul-language{
+    color: rgba(176, 171, 171, 0.852);
+    position: absolute;
+    top: 20px;
+    left: 0px;
+}
+.view-dropdown{
+    display: none;
+}
+.dropdown-open{
+    display: flex;
+}
+.dropdown-close{
+    display: none;
+}
 
 /*Navbar*/
 
@@ -505,6 +555,11 @@ body{
         margin-right: auto;
         text-align: center;
     }
+    .navbar-collapse-center{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
     .collapse-revealed{
         width: 100%;
         height: 15%;
@@ -534,22 +589,9 @@ body{
         align-items: center;
     }
     .menu-dropdown ul{
-        position: absolute;
-        width: 80px;
-        max-height: 0px;
-        overflow: hidden;
-        transition: all 0.3s;
-        display: flex;
-        flex-direction: column;
-        list-style: none;
-        padding: 0 10px;
-        background-color: rgba(193, 180, 180, 0.87);
-        border-radius: 5px;
-        color: white;
-    }
-
-    .menu-dropdown:hover ul{
-        max-height: 200px;
+        left: -34.5px;
+        font-size: 15px;
+        width: 100px;
     }
 
 

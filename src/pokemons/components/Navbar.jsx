@@ -1,19 +1,21 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
+import {useTranslation} from "react-i18next";
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import LanguageIcon from '@mui/icons-material/Language';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 export const Navbar = () => {
-
+    const [t, i18n] = useTranslation("global")
     const [isOpen, setIsOpen] = useState(true)
-    const [isOpenDropdown, setIsOpenDropdown] = useState()
-
-
+    const [isOpenDropdown, setIsOpenDropdown] = useState(false)
+    
     const openNavbar=()=>{
         setIsOpen(!isOpen)
     }
-    const changeLanguage=()=>{
-        console.log("me hice clic")
+    const changeLanguage=(language)=>{
+        i18n.changeLanguage(language)
+        setIsOpenDropdown(false)
     }
   return (
     <nav className="navbar-container">
@@ -24,33 +26,29 @@ export const Navbar = () => {
         </NavLink>
         
         <div className={`navbar-collapse ${isOpen ? "collapse-hidden" :"collapse-revealed"}`} >
-            <NavLink className="navbar-link" to="/pokedex" onClick={openNavbar}>
-                Inicio
-            </NavLink>
-            <NavLink className="navbar-link" to="/whothatpokemon" onClick={openNavbar}>
-                Adivina el pokémon
-            </NavLink>
-        </div>
-
-        <div className="dropdown-menu">
-            <ul className="ul-dropdown" >
-                <li className="li-dropdown">ES</li>
-                <li className="li-dropdown">EN</li>
-            </ul>    
+            <div className="navbar-collapse-center">
+                <NavLink className="navbar-link" to="/pokedex" onClick={openNavbar}>
+                    {t("navbar.home")}
+                </NavLink>
+                <NavLink className="navbar-link" to="/whothatpokemon" onClick={openNavbar}>
+                {t("navbar.who-that-pokemon")}
+                </NavLink>
+            </div>
         </div>
 
         <div className="dropdown-container">
-            {/* <button className="dropdown-language" onClick={()=> setIsOpenDropdown(!isOpenDropdown)}>
-                <LanguageIcon fontSize="large"/>
-            </button> */}
             <div className="menu-dropdown">
                 <button className="dropdown-language" onClick={()=> setIsOpenDropdown(!isOpenDropdown)}>
                     <LanguageIcon fontSize="large"/>
                 </button>
-                <ul>
-                    <li>Español</li>
-                    <li>English</li>
-                </ul>
+
+                <div className={`view-dropdown ${isOpenDropdown ?"dropdown-open" :"dropdown-close"}`}>
+                    <span className="arrow-ul-language"><ArrowDropUpIcon fontSize="large"/></span>
+                    <ul>
+                        <li onClick={()=> changeLanguage("es")}>ESPAÑOL</li>
+                        <li onClick={()=> changeLanguage("en")}>ENGLISH</li>
+                    </ul>
+                </div>
             </div>
                     
 
