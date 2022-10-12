@@ -6,11 +6,9 @@ import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import { getGender } from '../helpers';
 
 export const PokeCardPlus = ({
-  genderlessPoke,
-  malePoke,
-  femalePoke,
   id,
   abilitie,
   typesPoke,
@@ -23,6 +21,9 @@ export const PokeCardPlus = ({
   const numeroPokemon = (id) =>{
     return id.toString().padStart(3,"0")
   }
+
+  const gender = getGender(name)
+  
 
   const {nextPoke,prevPoke} = usePagination(id+1,id-1);
 
@@ -80,17 +81,19 @@ export const PokeCardPlus = ({
           
           <div className='gender-info'>
             <span>{t("page-info-pokemon.gender")}</span>
+
             <div>
               {
-              (genderlessPoke !== undefined && <span>Desconocido</span>)
+              (gender[0].find(gender => gender === "genderless") && <span>Desconocido</span>)
               }
               {
-                (malePoke !== undefined && <MaleIcon sx={{ fontSize: 30 }}/>)
+                (gender[0].find(gender => gender === "Male") && <MaleIcon sx={{ fontSize: 30 }}/>)
               }
               {
-                (femalePoke !== undefined && <FemaleIcon sx={{ fontSize: 30 }}/>)
+                (gender[0].find(gender => gender === "Famale") && <FemaleIcon sx={{ fontSize: 30 }}/>)
               }
             </div>
+
           </div>
 
           <div className="habiliti-info">

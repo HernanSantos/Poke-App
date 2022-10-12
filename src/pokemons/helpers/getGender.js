@@ -1,35 +1,48 @@
-//genero pokemon
+import { useEffect, useState } from "react";
 
-export const female = async(name)=>{
-    const url = `https://pokeapi.co/api/v2/gender/1`;
-    const resp = await fetch(url);
-    const {pokemon_species_details} = await resp.json();
 
-    const genderF = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
-    return genderF;
-}
+export const getGender = (name) =>{
+    const [gender, setGender] = useState([])
 
-export const male = async(name)=>{
-    const url = `https://pokeapi.co/api/v2/gender/2`;
-    const resp = await fetch(url);
-    const {pokemon_species_details} = await resp.json();
+    useEffect(() => {
+        const female = async(name)=>{
+            const url = `https://pokeapi.co/api/v2/gender/1`;
+            const resp = await fetch(url);
+            const {pokemon_species_details} = await resp.json();
+        
+            if (pokemon_species_details.find(gender => gender.pokemon_species.name === name)){
+                setGender(value=>[...value, "Famale"])
+            }
+        }
+        female(name);
+    }, []);
 
-    const genderM = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
-    return genderM;
-}
+    useEffect(() => {
+        const male = async(name)=>{
+            const url = `https://pokeapi.co/api/v2/gender/2`;
+            const resp = await fetch(url);
+            const {pokemon_species_details} = await resp.json();
+        
+            if (pokemon_species_details.find(gender => gender.pokemon_species.name === name)){
+                setGender(value=>[...value, "Male"])
+            }
+        }
+        male(name);
+    }, []);
 
-export const genderless = async(name)=>{
-    const url = `https://pokeapi.co/api/v2/gender/3`;
-    const resp = await fetch(url);
-    const {pokemon_species_details} = await resp.json();
+    useEffect(() => {
+        const genderless = async(name)=>{
+            const url = `https://pokeapi.co/api/v2/gender/3`;
+            const resp = await fetch(url);
+            const {pokemon_species_details} = await resp.json();
+        
+            if (pokemon_species_details.find(gender => gender.pokemon_species.name === name)){
+                setGender(value=>[...value, "genderless"])
+            }
+        }
+        genderless(name);
+    }, []);
+    
 
-    const genderGl = pokemon_species_details.find(gender => gender.pokemon_species.name === name)
-    return genderGl;
-}
-
-export const pokeSpecie = async(pokemon)=>{
-    const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemon}/`
-    const resp = await fetch(url);
-    const data = await resp.json();
-    return data;
+    return [gender]
 }

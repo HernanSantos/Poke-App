@@ -6,9 +6,8 @@ import {usePokemons} from "../hooks"
 export const PokemonPage = () => {
 
   const {id} = useParams();
-
   const [infoPoke,isLoading] = usePokemons(id);
-  console.log(infoPoke[0])
+
   return (
     <div>
         {(isLoading) 

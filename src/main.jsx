@@ -23,12 +23,12 @@ i18next.init({
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode> 
+  <React.StrictMode> 
     <Router>
       <I18nextProvider i18n={i18next}>
         <PokeApp/>
       </I18nextProvider>
     </Router>
-  // </React.StrictMode>
+  </React.StrictMode>
 )
 //

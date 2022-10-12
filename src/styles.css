@@ -84,7 +84,6 @@ body{
 .navbar-container{
     background-color: #ec6f10e6;
     display: flex;
-    align-items: center;
     justify-content: space-around;
     border-radius: 0 0 .5rem .5rem;
     box-shadow: 0 10px 10px #000000cd;
