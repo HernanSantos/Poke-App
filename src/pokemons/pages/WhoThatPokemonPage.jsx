@@ -72,7 +72,7 @@ export const WhoThatPokemonPage = () => {
   return (
         <div className="who-pokemon-container ">
             <div>
-                 <span className= "nombre-whothatpokemon-span">{t("page-who-what-pokemon.who-that-pokemon")}</span>
+                 <span className= "nombre-whothatpokemon-span">{t("page-who-that-pokemon.who-is-that-pokemon")}</span>
             </div>
             
             <div className="form-pokemon">
@@ -80,7 +80,7 @@ export const WhoThatPokemonPage = () => {
                     <input 
                         type="text"
                         ref={inputRef}
-                        placeholder={t("page-who-what-pokemon.enter-name")}
+                        placeholder={t("page-who-that-pokemon.enter-name")}
                         value={namePokemon}
                         onChange={(e)=>searchPokemon(e.target.value)}
                         autoFocus
@@ -96,15 +96,15 @@ export const WhoThatPokemonPage = () => {
                         ))}
                     </ul>
                     <div className="div-button-submit">
-              <button className="button-submit" onClick={handleSubmit}>{t("page-who-what-pokemon.submit")}</button>
+              <button className="button-submit" onClick={handleSubmit}>{t("page-who-that-pokemon.submit")}</button>
             </div>
                 </form>
                 
 
                 <div className={`modal ${isOpenModal && counter != 0 && "modal-open"}`}>
                     <div className="modal_dialog">
-                        <span>{t("page-who-what-pokemon.fail")}</span>
-                        <span>{t("page-who-what-pokemon.attempts-available")}: {counter}</span>
+                        <span>{t("page-who-that-pokemon.fail")}</span>
+                        <span>{t("page-who-that-pokemon.attempts-remaining")}: {counter}</span>
                     </div>
                 </div>
 
@@ -114,10 +114,10 @@ export const WhoThatPokemonPage = () => {
 
             <div className="win-lose">
             {
-                (compare && (counter >  0)) && <span className="nombre-whothatpokemon">{t("page-who-what-pokemon.victory")}</span>
+                (compare && (counter >  0)) && <span className="nombre-whothatpokemon">{t("page-who-that-pokemon.victory")}</span>
             }
             {
-                (counter ===  0)  && <span className="nombre-whothatpokemon">{t("page-who-what-pokemon.defeat")}</span>
+                (counter ===  0)  && <span className="nombre-whothatpokemon">{t("page-who-that-pokemon.defeat")}</span>
             }
             </div>
 
@@ -139,7 +139,7 @@ export const WhoThatPokemonPage = () => {
             <div className="div-surrender">
                 <button className={`surrender ${counter != 0 && !compare ? "view-input-revealed" :"view-input-hidden"}`}
                         onClick={()=>setCounter(0)}>
-                    {t("page-who-what-pokemon.surrender")}
+                    {t("page-who-that-pokemon.surrender")}
                 </button>
             </div>
 
@@ -147,7 +147,7 @@ export const WhoThatPokemonPage = () => {
                 <button 
                     onClick={restoreValues} 
                     className={`button-start-game ${(counter ===  0 || compare) ? "view-input-revealed" :"view-input-hidden"}`}>
-                    {t("page-who-what-pokemon.try-again")}
+                    {t("page-who-that-pokemon.try-again")}
                 </button>
             </div>    
     </div>

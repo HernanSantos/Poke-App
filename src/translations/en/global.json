@@ -1,7 +1,7 @@
 {
     "navbar":{
         "home": "Home",
-        "who-that-pokemon": "¿Who's that pokémon?"
+        "who-is-that-pokemon": "Who's that pokémon?"
     },
     "page-pokemon":{
         "search": "Search pokémon",
@@ -16,17 +16,17 @@
         "gender": "Gender",
         "ability": "Ability"
     },
-    "page-who-what-pokemon":{
-        "who-that-pokemon": "¿Who's that pokémon?",
+    "page-who-that-pokemon":{
+        "who-is-that-pokemon": "Who's that pokémon?",
         "enter-name": "Enter pokémon name",
         "submit": "Submit",
-        "text-glue": "This pokémon is type",
-        "glue": "Glue",
-        "surrender": "¡Surrender!",
+        "clue-text": "This pokémon is type",
+        "clue": "Clue",
+        "surrender": "Surrender!",
         "try-again":"Try again",
-        "fail": "¡Fail!",
-        "attempts-available": "attempts available",
-        "victory": "¡Victory!",
-        "defeat": "¡Defeat!"
+        "fail": "Fail!",
+        "attempts-remaining": "attempts remaining",
+        "victory": "Victory!",
+        "defeat": "Defeat!"
     }
 }

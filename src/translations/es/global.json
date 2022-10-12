@@ -1,7 +1,7 @@
 {
     "navbar":{
         "home": "Inicio",
-        "who-that-pokemon": "¿Quien es este pokémon?"
+        "who-is-that-pokemon": "¿Quien es este pokémon?"
     },
     "page-pokemon":{
         "search": "Buscar pokémon",
@@ -13,19 +13,19 @@
         "type": "Tipo",
         "weight": "Peso",
         "height": "Altura",
-        "gender": "Sexo",
+        "gender": "Genero",
         "ability": "Habilidad"
     },
-    "page-who-what-pokemon":{
-        "who-that-pokemon": "¿Quien es este pokémon?",
+    "page-who-that-pokemon":{
+        "who-is-that-pokemon": "¿Quien es este pokémon?",
         "enter-name": "Ingresar nombre",
         "submit": "Enviar",
-        "text-glue": "Este pokémon es tipo",
-        "glue": "Pista",
+        "clue-text": "Este pokémon es tipo",
+        "clue": "Pista",
         "surrender": "¡Me rindo!",
         "try-again":"Volver a intentar",
         "fail": "¡Fallaste!",
-        "attempts-available": "Intentos disponibles",
+        "attempts-remaining": "Intentos disponibles",
         "victory": "¡Ganaste!",
         "defeat": "¡Perdiste!"
     }

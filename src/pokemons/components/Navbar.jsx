@@ -18,23 +18,23 @@ export const Navbar = () => {
         setIsOpenDropdown(false)
     }
   return (
-    <nav className="navbar-container">
-        <NavLink className="navbar-brand" to="/pokedex">
-            <img src="https://res.cloudinary.com/dtfmesfi0/image/upload/v1663874318/pokemon-app/zla4yhb6jl9ngrmmpvcw.png" 
-                alt="icono-pokemon"
-                className="navbar-img" />
-        </NavLink>
+    <div className="navbar-container">
+        <div>
+            <NavLink className="navbar-brand" to="/pokedex">
+                <img src="https://res.cloudinary.com/dtfmesfi0/image/upload/v1663874318/pokemon-app/zla4yhb6jl9ngrmmpvcw.png" 
+                    alt="icono-pokemon"
+                    className="navbar-img" />
+            </NavLink>
+        </div>
         
-        <div className={`navbar-collapse ${isOpen ? "collapse-hidden" :"collapse-revealed"}`} >
-            <div className="navbar-collapse-center">
+        <nav className={`navbar-collapse ${isOpen ? "collapse-hidden" :"collapse-revealed"}`} >
                 <NavLink className="navbar-link" to="/pokedex" onClick={openNavbar}>
                     {t("navbar.home")}
                 </NavLink>
                 <NavLink className="navbar-link" to="/whothatpokemon" onClick={openNavbar}>
-                {t("navbar.who-that-pokemon")}
+                {t("navbar.who-is-that-pokemon")}
                 </NavLink>
-            </div>
-        </div>
+        </nav>
 
         <div className="dropdown-container">
             <div className="menu-dropdown">
@@ -51,12 +51,10 @@ export const Navbar = () => {
                 </div>
             </div>
                     
-
-
             <button className="toggle-collapse" onClick={openNavbar}>
                 <DehazeIcon fontSize="large"/>
             </button>
         </div>
-    </nav>
+    </div>
   )
 }
