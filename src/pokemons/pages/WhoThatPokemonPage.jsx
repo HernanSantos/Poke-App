@@ -112,14 +112,12 @@ export const WhoThatPokemonPage = () => {
 
             <CluePokemon types={whoPokemon?.types}/>
 
-            <div className="win-lose">
             {
                 (compare && (counter >  0)) && <span className="nombre-whothatpokemon">{t("page-who-that-pokemon.victory")}</span>
             }
             {
                 (counter ===  0)  && <span className="nombre-whothatpokemon">{t("page-who-that-pokemon.defeat")}</span>
             }
-            </div>
 
             <div>
                 {

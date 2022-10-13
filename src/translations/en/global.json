@@ -14,7 +14,8 @@
         "weight": "Weight",
         "height": "Height",
         "gender": "Gender",
-        "ability": "Ability"
+        "ability": "Ability",
+        "unknown-gender": "Unknown"
     },
     "page-who-that-pokemon":{
         "who-is-that-pokemon": "Who's that pokémon?",

@@ -31,11 +31,13 @@ body{
     background-color: #eb8d46fd;
     color: white;
     width: 100%;
-    padding: 10px;
+    height: 80%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     font-size: 28px;
+    
 }
 /*Modal intentos disponibles*/
 
@@ -88,6 +90,9 @@ body{
     border-radius: 0 0 .5rem .5rem;
     box-shadow: 0 10px 10px #000000cd;
 }
+.navbar-brand{
+    padding-right: 300px;
+}
 .navbar-link{
     color: white;
     text-decoration: none;
@@ -97,6 +102,7 @@ body{
     display: flex;
     width: 50%;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .toggle-collapse{
@@ -115,6 +121,7 @@ body{
 .dropdown-container{
     display: flex;
     align-items: center;
+    padding-left: 300px;
 }
 
 .menu-dropdown{
@@ -167,7 +174,9 @@ body{
     width: 400px;
     max-width: 100%;
 }
-
+input{
+    height: 2rem;
+}
 .form-pokemon input{
     border: none;
     border: 3px solid #ec6f10e6;
@@ -198,6 +207,7 @@ body{
 .logo-container{
     display: flex;
     justify-content: center;
+    padding-top: 10px;
 }
 
 .img-logo{
@@ -224,7 +234,11 @@ body{
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
+.next-prev-pagination{
+    display: flex;
+    width: 25%;
+    justify-content: center;
+}
 .buttonNavigate{
     background-color: #ec6f10e6;
     font-size: 25px;
@@ -281,6 +295,7 @@ body{
     font-weight: 700;
     text-transform: capitalize;
     text-shadow: 2px 0 3px #ec6f10e6;
+    padding-top: 10px;
 }
 
 .nombre-whothatpokemon-span{
@@ -363,6 +378,7 @@ body{
     text-transform: capitalize;
     box-shadow: 5px 10px 18px #888888;
     margin: 10px;
+    border-radius: 5px;
 }
 
 .card-img{
@@ -389,6 +405,15 @@ body{
     font-weight:500;
     margin: 3px;
 
+}
+.h1-name-pokemon{
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
+}
+.span-tipe-pokemon{
+    font-weight: 500;
+    padding-bottom: 5px;
 }
 /*pokemon card*/
 
@@ -422,13 +447,13 @@ body{
     background-color: #ec6f10e6;
     color: white;
     display: grid;
-    gap: 10px;
+    gap: 0.5rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-content: center;
-    border-radius: 15px;
+    border-radius: 1rem;
     box-shadow: 5px 10px 18px #888888;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 .type-pokemon{
@@ -479,7 +504,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-    align-items: center
+    align-items: center;
+    padding-left: 0.2rem;
 }
 
 .height-info{
@@ -494,6 +520,7 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding-right: 0.5rem;
 }
 /*pokedex-pokemon-info*/
 
@@ -531,7 +558,9 @@ body{
         display: block;
         margin: 0;
     }
-
+    .navbar-brand{
+        padding-right: 0px;
+    }
     .toggle-collapse{
         display: inline-block;
         color: white;
@@ -579,6 +608,7 @@ body{
     .dropdown-container{
         display: flex;
         align-items: center;
+        padding-left: 7rem;
     }
 
     .menu-dropdown{
@@ -601,7 +631,7 @@ body{
     }
     .siguiente-anterior{
         width: 100%;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
     .boton-pagination{
         background-color: #ec6f10e6;
@@ -615,7 +645,7 @@ body{
         padding: 0.3em 0.1em 0.3em 0.1em;
         border-color: #ec6f10e6;
         text-transform: capitalize;
-        width: 140px;
+        width: 10rem;
     }
     .view-input-hidden{
         display: none;
