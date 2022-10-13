@@ -1,4 +1,6 @@
-import { female, male, genderless } from "./getGender";
+// import { female, male, genderless } from "./getGender";
+
+// import { getGender } from "./getGender";
 
 //obtener nombre + id
 export const getPokemon = async (pokemon) => {
@@ -31,14 +33,14 @@ export const getPokemon = async (pokemon) => {
     ));
     const abilitie = abilitiesPoke.filter(abili => abili !== false)
 
-    const femalePoke = await female(name);
-    const malePoke = await male(name);
-    const genderlessPoke = await genderless(name);
+    // const gender = getGender(name);
+    // console.log(gender)
+
+    // const femalePoke = await female(name);
+    // const malePoke = await male(name);
+    // const genderlessPoke = await genderless(name);
 
   return [{
-    genderlessPoke,
-    malePoke,
-    femalePoke,
     id,
     abilitie,
     typesPoke,

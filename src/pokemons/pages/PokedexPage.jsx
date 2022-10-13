@@ -56,16 +56,12 @@ export const PokedexPage = () => {
             </div>
           </div>
 
-          <nav aria-label="Page navigation example">
-            <div className="pagination justify-content-end">
-
+          <nav className="next-prev-pagination">
               <div className="page-item">
                   <button className="buttonNavigate" onClick={()=> {prevPagine !== null && setPagine(prevPagine)}}><ChevronLeftIcon/>{t("page-pokemon.prev")}</button>
               </div>
-
               <div className="page-item">
                   <button className="buttonNavigate" onClick={()=>setPagine(nextPagine)}>{t("page-pokemon.next")}<ChevronRightIcon/></button>
-              </div>
             </div>
           </nav>
           

@@ -1,6 +1,7 @@
 import { usePagination } from '../hooks';
 import { useNavigate } from 'react-router-dom';
 import {useTranslation} from "react-i18next";
+import { getGender } from '../helpers';
 
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
@@ -8,9 +9,6 @@ import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 export const PokeCardPlus = ({
-  genderlessPoke,
-  malePoke,
-  femalePoke,
   id,
   abilitie,
   typesPoke,
@@ -24,6 +22,8 @@ export const PokeCardPlus = ({
     return id.toString().padStart(3,"0")
   }
 
+  const [pokeGender] = getGender(name)
+  
   const {nextPoke,prevPoke} = usePagination(id+1,id-1);
 
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ export const PokeCardPlus = ({
       <div className="contenedor">
 
         <div className="name-number-pokemon">
-          <h1>#{numeroPokemon(id)} {name} </h1> 
+          <h1 className='h1-name-pokemon'>#{numeroPokemon(id)} {name} </h1> 
         </div>
 
         <div className='img-info'>
@@ -56,7 +56,7 @@ export const PokeCardPlus = ({
         </div>
         
         <div className='type-pokemon'>
-          <h2>{t("page-info-pokemon.type")}</h2>
+          <span className='span-tipe-pokemon'>{t("page-info-pokemon.type")}</span>
           <div className='div-type-info'>
               {
                 typesPoke.map(type=>(
@@ -80,17 +80,19 @@ export const PokeCardPlus = ({
           
           <div className='gender-info'>
             <span>{t("page-info-pokemon.gender")}</span>
+
             <div>
               {
-              (genderlessPoke !== undefined && <span>Desconocido</span>)
+              (pokeGender.find(gender => gender === "genderless") && <span>{t("page-info-pokemon.unknown-gender")}</span>)
               }
               {
-                (malePoke !== undefined && <MaleIcon sx={{ fontSize: 30 }}/>)
+                (pokeGender.find(gender => gender === "Male") && <MaleIcon sx={{ fontSize: 30 }}/>)
               }
               {
-                (femalePoke !== undefined && <FemaleIcon sx={{ fontSize: 30 }}/>)
+                (pokeGender.find(gender => gender === "Famale") && <FemaleIcon sx={{ fontSize: 30 }}/>)
               }
             </div>
+
           </div>
 
           <div className="habiliti-info">
