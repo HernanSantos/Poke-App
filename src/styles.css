@@ -631,7 +631,7 @@ input{
     }
     .siguiente-anterior{
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
     .boton-pagination{
         background-color: #ec6f10e6;
