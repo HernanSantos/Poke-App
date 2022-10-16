@@ -40,8 +40,6 @@ export const getGender = (name) =>{
         genderless(name);
     }, [])
 
-
-    console.log("gender", gender)
     return [gender]
 }
 

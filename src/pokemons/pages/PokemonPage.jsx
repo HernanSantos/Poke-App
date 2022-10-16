@@ -9,14 +9,14 @@ export const PokemonPage = () => {
   const [infoPoke,isLoading] = usePokemons(id);
 
   return (
-    <div>
+    <>
         {(isLoading) 
           ? <Loading />
           : infoPoke.map(poke=>(
               <PokeCardPlus key = {poke.id} {...poke}/>
             ))
         }
-    </div>
+    </>
 )
 }
 

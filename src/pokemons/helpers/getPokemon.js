@@ -1,8 +1,4 @@
-// import { female, male, genderless } from "./getGender";
 
-// import { getGender } from "./getGender";
-
-//obtener nombre + id
 export const getPokemon = async (pokemon) => {
 
   const urlPoke = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
@@ -23,7 +19,6 @@ export const getPokemon = async (pokemon) => {
         },
     } = dataNi;
 
-
     const typesPoke = types.map(type=>(
       type.type.name
     ));
@@ -32,13 +27,6 @@ export const getPokemon = async (pokemon) => {
       !abili.is_hidden && abili.ability.name
     ));
     const abilitie = abilitiesPoke.filter(abili => abili !== false)
-
-    // const gender = getGender(name);
-    // console.log(gender)
-
-    // const femalePoke = await female(name);
-    // const malePoke = await male(name);
-    // const genderlessPoke = await genderless(name);
 
   return [{
     id,

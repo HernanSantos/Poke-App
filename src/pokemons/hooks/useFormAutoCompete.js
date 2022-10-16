@@ -2,14 +2,10 @@ import { useEffect, useState } from 'react'
 
 export const useFormAutoCompete = () => {
 
-    //autocomplete
     const [namePokemon, setNamePokemon] = useState("")
-    const [pokemons, setPokemons] = useState([]); //150 pokemons
+    const [pokemons, setPokemons] = useState([]); 
     const [pokemonsMatch, setPokemonsMatch] = useState([]); 
 
-    console.log(namePokemon)
-
-    //nombres 150 pokemon
     useEffect(() => {
         const loadPokemons = async()=>{
             const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
@@ -19,8 +15,6 @@ export const useFormAutoCompete = () => {
         loadPokemons();
     }, []);
 
-
-    //buscar y guardar
     const searchPokemon=(text)=>{
         setNamePokemon(text);
         
@@ -34,7 +28,7 @@ export const useFormAutoCompete = () => {
             setPokemonsMatch(matches);
         } 
     }
-    
+
     const reset = () =>{
         setNamePokemon("")
     }

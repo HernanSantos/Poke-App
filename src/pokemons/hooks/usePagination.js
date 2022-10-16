@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getPokemon } from "../helpers";
 
 
-export const usePagination = (next=1,prev=3) => {
+export const usePagination = (next,prev) => {
 
     const [nextPoke, setNextPoke] = useState({name:"",id:""})
     const [prevPoke, setPrevPoke] = useState({name:"",id:""})
@@ -15,9 +15,11 @@ export const usePagination = (next=1,prev=3) => {
     }
 
     const prevPokemon = async() =>{
-      const getInfo =  await getPokemon(prev);
-      const {name,id} = getInfo[0];
-      setPrevPoke({name,id});
+      if(prev !== 0){
+        const getInfo =  await getPokemon(prev);
+        const {name,id} = getInfo[0];
+        setPrevPoke({name,id});
+      }
     }
     
     useEffect(() => {

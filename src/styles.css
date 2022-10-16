@@ -1,17 +1,39 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+
 body{
     color: rgb(0, 0, 0);
     font-family: "Roboto", sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+.page-container{
+    background-color: red;
+    padding-bottom: 2rem;
+}
+/*Footer*/
+.footer-container{
+    background-color: #ec6f10e6;
+    width: 100%;
+    height: 4rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.footer-icon{
+    padding: 0rem 1rem 0rem 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
 
 /*Modal intentos disponibles*/
 .modal{
-    background-color: rgba(255, 255, 255, 0.758);
-    width: 300px;
-    height: 150px;
+    background-color: rgba(255, 255, 255, 0.548);
+    width: 18.75rem;
+    height: 9.3rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,15 +42,15 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: calc(50vh - 7.25vh) calc(50vw - 150px);
-    border-radius: 15px;
+    margin: calc(50vh - 5.25vh) calc(50vw - 9.4rem);
+    border-radius: 1rem;
     opacity: 0.8;
 }
 .modal-open{
     display: flex;
 }
 .modal_dialog{
-    background-color: #eb8d46fd;
+    background-color: red;
     color: white;
     width: 100%;
     height: 80%;
@@ -36,7 +58,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 28px;
+    font-size: 1.75rem;
     
 }
 /*Modal intentos disponibles*/
@@ -48,18 +70,19 @@ body{
 .span-clue-revealed{
     display: flex;
     color: rgb(122, 114, 114);
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .button-clue{
     background-color: #ec6f10e6;
     border: #ec6f10e6;
     color: white;
-    width: 100px;
-    height: 30px;
-    border-radius: 3px;
-    box-shadow: 2px 5px 18px #888888;
-    margin-top: 5px;
+    width: 6.25rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    box-shadow: 0.125rem 0.3rem 18px #888888;
+    margin-top: 0.3rem;
+    font-size: 1rem;
 }
 
 .enabled{
@@ -88,15 +111,15 @@ body{
     display: flex;
     justify-content: space-around;
     border-radius: 0 0 .5rem .5rem;
-    box-shadow: 0 10px 10px #000000cd;
+    box-shadow: 0 0.625rem 0.625rem #000000cd;
 }
 .navbar-brand{
-    padding-right: 300px;
+    padding-right: 18.75rem;
 }
 .navbar-link{
     color: white;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 2rem;
 }
 .navbar-collapse{
     display: flex;
@@ -121,7 +144,7 @@ body{
 .dropdown-container{
     display: flex;
     align-items: center;
-    padding-left: 300px;
+    padding-left: 18.75rem;
 }
 
 .menu-dropdown{
@@ -129,23 +152,23 @@ body{
     align-items: center;
 }
 .menu-dropdown ul{
-    top: 40px;
-    left: -60px;
-    font-size: 20px;
+    top: 1.5rem;
+    left: -3.75rem;
+    font-size: 1.25rem;
     position: absolute;
-    width: 100px;
+    width: 6.25rem;
     display: flex;
     flex-direction: column;
     list-style: none;
     text-align: center;
-    padding: 0 10px;
+    padding: 0 0.625rem;
     background-color: rgba(176, 171, 171, 0.842);
-    border-radius: 5px;
+    border-radius: 0.3rem;
     color: white;
     cursor: pointer;
 }
 .menu-dropdown ul li{
-    padding: 5px 0px 5px 0px;
+    padding: 0.3rem 0px 0.3rem 0px;
 }
 .menu-dropdown ul li:hover{
     color: yellow;
@@ -153,8 +176,8 @@ body{
 .arrow-ul-language{
     color: rgba(176, 171, 171, 0.852);
     position: absolute;
-    top: 20px;
-    left: 0px;
+    top: 1.25rem;
+    left: 0.3rem;
 }
 .view-dropdown{
     display: none;
@@ -170,8 +193,8 @@ body{
 
 /*form input*/
 .form-pokemon{
-    padding: 10px 0;
-    width: 400px;
+    padding: 0.625rem 0;
+    width: 25rem;
     max-width: 100%;
 }
 input{
@@ -180,11 +203,11 @@ input{
 .form-pokemon input{
     border: none;
     border: 3px solid #ec6f10e6;
-    font-size: 20px;
+    font-size: 1.25rem;
     width: 100%;
     text-align: center;
-    border-radius: 4px;
-    box-shadow: 5px 10px 18px #888888;
+    border-radius: 0.25rem;
+    box-shadow: 0.3rem 0.625rem 18px #888888;
 }
 
 .div-button-submit{
@@ -195,11 +218,12 @@ input{
     background-color: #ec6f10e6;
     border: #ec6f10e6;
     color: white;
-    width: 100px;
-    height: 30px;
-    border-radius: 3px;
-    box-shadow: 2px 5px 18px #888888;
-    margin-top: 10px;
+    width: 6.25rem;
+    height: 1.87rem;
+    border-radius: 0.18rem;
+    box-shadow: 0.125rem 0.3rem 18px #888888;
+    margin-top: 0.625rem;
+    font-size: 1rem;
 }
 /*form input*/
 
@@ -207,11 +231,11 @@ input{
 .logo-container{
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    padding-top: 0.625rem;
 }
 
 .img-logo{
-    width: 500px;
+    width: 31.25rem;
 }
 /*Logo-container*/
 
@@ -224,15 +248,15 @@ input{
 
 .idContainer{
     background-color: rgba(41, 40, 41, 0.813);
-    font-size: 20px;
+    font-size: 1.25rem;
     color: white;
-    border-radius: 5px;
-    height: 30px;
+    border-radius: 0.3rem;
+    height: 1.875;
     width: 9em;
     display: flex;
     justify-content: space-around;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 .next-prev-pagination{
     display: flex;
@@ -241,12 +265,12 @@ input{
 }
 .buttonNavigate{
     background-color: #ec6f10e6;
-    font-size: 25px;
-    border-radius: 5px;
-    width: 175px;
+    font-size: 1.5rem;
+    border-radius: 0.3rem;
+    width: 11rem;
     color: white;
     margin: 1em;
-    box-shadow: 5px 10px 18px #888888;
+    box-shadow: 0.3rem 0.625rem 18px #888888;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -256,10 +280,10 @@ input{
 
 .boton-pagination{
     background-color: #ec6f10e6;
-    font-size: 30px;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: 1.9rem;
+    border-radius: 0.625rem;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
     color: white;
     display: flex;
     justify-content: space-evenly;
@@ -267,14 +291,14 @@ input{
     padding: 0.7em 0.1em 0.7em 0.1em;
     border-color: #ec6f10e6;
     text-transform: capitalize;
-    width: 300px;
+    width: 18.75rem;
 }
 
 .container-card{
     display: flex;
     flex-direction: row;
     gap: 0px;
-    margin: 20px 20px 0px 20px;
+    margin: 1.25rem 1.25rem 0px 1.25rem;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -286,32 +310,33 @@ input{
     flex-direction: column;
     margin: auto;
     width: 60%;
-    max-width: 800px;
+    max-width: 50rem;
+    height: 100%;
     align-items: center;
 } 
 
 .nombre-whothatpokemon{
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 700;
     text-transform: capitalize;
-    text-shadow: 2px 0 3px #ec6f10e6;
-    padding-top: 10px;
+    text-shadow: 0.125rem 0 3px #ec6f10e6;
+    padding-top: 0.625rem;
 }
 
 .nombre-whothatpokemon-span{
-    font-size: 40px;
+    font-size: 2.5rem;
     font-weight: 700;
-    text-shadow: 2px 0 3px #ec6f10e6;
+    text-shadow: 0.125rem 0 3px #ec6f10e6;
 }
 
 .button-start-game{
     background-color: #ec6f10e6;
     font-size: 2em;
-    border-radius: 5px;
-    width: 300px;
+    border-radius: 0.3rem;
+    width: 18.75rem;
     color: white;
-    margin-top: 10px;
-    box-shadow: 5px 10px 18px #888888;
+    margin-top: 0.625rem;
+    box-shadow: 0.3rem 0.625rem 18px #888888;
     display: flex;
     justify-content: center;
     border-color: #ec6f10e6;
@@ -319,17 +344,17 @@ input{
 }
 
 .xl{
-    width: 400px;
+    width: 25rem;
 }
 
 .xs{
-    width: 300px;
+    width: 18.75rem;
 }
 /*whothatpokemon*/
 
 /*pokemon list autocomplete*/
 .autocomplete-submit{
-    width: 400px;
+    width: 25rem;
     position: sticky;
 }
 .ul-autocomplete{
@@ -338,14 +363,14 @@ input{
     margin: 0;
     padding: 0;
     width: 100%;
-    max-height: 150px;
+    max-height: 9.3rem;
     overflow-y:auto;
 }
 .ul-autocomplete li{
     color: rgb(53, 52, 52);
-    font-size: 20px;
-    padding: 10px;
-    width: calc(100% - 20px);
+    font-size: 1.25rem;
+    padding: 0.625rem;
+    width: calc(100% - 1.25rem);
     font-weight: bold;
     text-align: center;
     cursor: pointer;   
@@ -376,44 +401,44 @@ input{
     align-items: center;
     cursor: pointer;
     text-transform: capitalize;
-    box-shadow: 5px 10px 18px #888888;
-    margin: 10px;
-    border-radius: 5px;
+    box-shadow: 0.3rem 0.625rem 18px #888888;
+    margin: 0.625rem;
+    border-radius: 0.3rem;
 }
 
 .card-img{
-    width: 200px;
-    height: 200px;
+    width: 12.5rem;
+    height: 12.5rem;
     object-fit: contain;
-    margin-top: 5px;
+    margin-top: 0.3rem;
 }
 
 .text-container{
     display: flex;
     flex-direction: column;
-    height: 90px;
-    margin-top: 5px;
+    height: 5.6rem;
+    margin-top: 0.3rem;
     text-align: center;
 }
 
 .card-title{
     font-weight:600;
-    margin-bottom: 2px;
+    margin-bottom: 0.125rem;
 }
 
 .card-text{
     font-weight:500;
-    margin: 3px;
+    margin: 0.2rem;
 
 }
 .h1-name-pokemon{
     font-weight: 500;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
 }
 .span-tipe-pokemon{
     font-weight: 500;
-    padding-bottom: 5px;
+    padding-bottom: 0.3rem;
 }
 /*pokemon card*/
 
@@ -422,7 +447,7 @@ input{
 .siguiente-anterior{
     display: flex;
     width: 60%;
-    font-size: 40px;
+    font-size: 2.5rem;
     margin: auto;
     text-align: center;
     justify-content: space-evenly;
@@ -434,7 +459,7 @@ input{
     margin: auto;
     width: 80%;
     align-items: center;
-    font-size: 25px;
+    font-size: 1.5rem;
 }
 
 .name-number-pokemon{
@@ -452,7 +477,7 @@ input{
     grid-template-rows: 1fr 1fr;
     justify-content: center;
     border-radius: 1rem;
-    box-shadow: 5px 10px 18px #888888;
+    box-shadow: 0.3rem 0.625rem 18px #888888;
     margin-top: 1rem;
 }
 
@@ -469,10 +494,10 @@ input{
 
 .type-info{
     background-color: #ec6f10e6;
-    box-shadow: 5px 10px 18px #888888;
+    box-shadow: 0.3rem 0.625rem 18px #888888;
     color: white;
-    border-radius: 10px;
-    width: 150px;
+    border-radius: 0.625rem;
+    width: 9.3rem;
     text-align: center;
     text-transform: capitalize;   
 }
@@ -530,11 +555,11 @@ input{
     border: red;
     color: white;
     font-size: 1.5em;
-    border-radius: 5px;
-    width: 150px;
-    margin-top: 10px;
-    padding: 5px;
-    box-shadow: 5px 10px 18px #888888;
+    border-radius: 0.3rem;
+    width: 9.3rem;
+    margin-top: 0.625rem;
+    padding: 0.3rem;
+    box-shadow: 0.3rem 0.625rem 18px #888888;
     justify-content: center;
 }
 
@@ -548,8 +573,10 @@ input{
     margin: auto;
 }
 .loading{
-    font-size: 70px;
+    font-size: 4.3rem;
 }
+
+
 
 /* Small devices (landscape phones, 576px and up) */
 @media only screen and (max-width: 415px) {
@@ -561,19 +588,22 @@ input{
     .navbar-brand{
         padding-right: 0px;
     }
+    .navbar-img{
+        padding-top: 0.2rem;
+    }
     .toggle-collapse{
         display: inline-block;
         color: white;
         background-color: transparent;
         border: none;
-        margin-right: 5px;
-        border-radius: 10px;
-        width: 50px;
-        height: 50px;
+        margin-right: 0.3rem;
+        border-radius: 0.6rem;
+        width: 3.125rem;
+        height: 3.125rem;
     }
 
     .img-logo{
-        width: 350px;
+        width: 22rem;
     }
 
     .navbar-collapse{
@@ -588,18 +618,18 @@ input{
     }
     .collapse-revealed{
         width: 100%;
-        height: 15%;
+        height: 10rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content:space-evenly;
         position: absolute;
         margin-left: auto;
         margin-right: auto;
-        top: 64px;
+        top: 4.4rem;
         left: 0;
         right: 0;
-        text-align: center;
         background-color: #ec6f10e6;
+        border-radius: 0.5rem;
     }
     .collapse-hidden{
         display: none;
@@ -608,7 +638,7 @@ input{
     .dropdown-container{
         display: flex;
         align-items: center;
-        padding-left: 7rem;
+        padding-left: 15rem;
     }
 
     .menu-dropdown{
@@ -616,18 +646,18 @@ input{
         align-items: center;
     }
     .menu-dropdown ul{
-        left: -34.5px;
-        font-size: 15px;
-        width: 100px;
+        left: -2.15rem;
+        font-size: 1rem;
+        width: 6.25rem;
     }
 
 
     .form-pokemon{
-        width: 300px;
+        width: 18.75rem;
     }
     .buttonNavigate{
-        font-size: 20px;
-        width: 130px;
+        font-size: 1.25rem;
+        width: 8.125rem;
     }
     .siguiente-anterior{
         width: 100%;
@@ -635,10 +665,10 @@ input{
     }
     .boton-pagination{
         background-color: #ec6f10e6;
-        font-size: 20px;
-        border-radius: 10px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        font-size: 1.25rem;
+        border-radius: 0.6rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
         color: white;
         justify-content: space-between;
         align-items: center;
@@ -655,27 +685,27 @@ input{
         justify-content: center;
     }
     .nombre-whothatpokemon-span{
-        font-size: 25px;
+        font-size: 1.5rem;
     }
     .who-pokemon-container{
         width: 80%;
     } 
     .xl{
-        width: 300px;
+        width: 18.75rem;
     }
     .ul-autocomplete{
-        width: 300px;
-        max-height: 130px;
-        font-size: 20px;
+        width: 19rem;
+        max-height: 8rem;
+        font-size: 1.25rem;
     }
     .autocomplete-submit{
-        width: 300px;
+        width: 18.75rem;
         position: sticky;
     }
     .modal{
-        width: 300px;
-        height: 150px;
-        margin: calc(50vh - 7.25vh) calc(50vw - 150px);
+        width: 18.75rem;
+        height: 9rem;
+        margin: calc(50vh - 5.25vh) calc(50vw - 9.4rem);
     }
     .div-loading{
         display: flex;
@@ -686,8 +716,8 @@ input{
         margin: auto;
     }
     .loading{
-        font-size: 50px;
+        font-size: 3rem;
     }
     .img-loading{
-        width: 400px;
+        width: 25rem;
     }

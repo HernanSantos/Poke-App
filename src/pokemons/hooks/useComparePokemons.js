@@ -7,8 +7,6 @@ export const useComparePokemons = (namePokemon, valueForm) => {
     const [counter, setCounter] = useState(3)
     const [isOpenModal, setIsOpenModal] = useState()
 
-    console.log("name:", namePokemon)
-
     useEffect(() => {
         if(namePokemon){
             setCompare(false);

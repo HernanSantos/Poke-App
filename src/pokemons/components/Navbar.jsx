@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 import {useTranslation} from "react-i18next";
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -20,20 +20,20 @@ export const Navbar = () => {
   return (
     <div className="navbar-container">
         <div>
-            <NavLink className="navbar-brand" to="/pokedex">
+            <Link className="navbar-brand" to="/pokedex">
                 <img src="https://res.cloudinary.com/dtfmesfi0/image/upload/v1663874318/pokemon-app/zla4yhb6jl9ngrmmpvcw.png" 
                     alt="icono-pokemon"
                     className="navbar-img" />
-            </NavLink>
+            </Link>
         </div>
         
         <nav className={`navbar-collapse ${isOpen ? "collapse-hidden" :"collapse-revealed"}`} >
-                <NavLink className="navbar-link" to="/pokedex" onClick={openNavbar}>
+                <Link className="navbar-link" to="/pokedex" onClick={openNavbar}>
                     {t("navbar.home")}
-                </NavLink>
-                <NavLink className="navbar-link" to="/whothatpokemon" onClick={openNavbar}>
+                </Link>
+                <Link className="navbar-link" to="/whothatpokemon" onClick={openNavbar}>
                 {t("navbar.who-is-that-pokemon")}
-                </NavLink>
+                </Link>
         </nav>
 
         <div className="dropdown-container">

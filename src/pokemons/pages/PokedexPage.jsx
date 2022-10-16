@@ -68,9 +68,7 @@ export const PokedexPage = () => {
       <div className="container-card "> 
             {   
               infoPoke?.map((pokes,index) => (
-                <div>
                   <PokeCard key={index} {...pokes}/>
-                </div>
               ))
             }
       </div>
