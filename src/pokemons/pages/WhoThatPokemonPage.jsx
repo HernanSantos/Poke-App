@@ -80,8 +80,8 @@ export const WhoThatPokemonPage = () => {
                     <input 
                         type="text"
                         ref={inputRef}
-                        placeholder={t("page-who-that-pokemon.enter-name")}
                         value={namePokemon}
+                        placeholder={t("page-who-that-pokemon.enter-name")}
                         onChange={(e)=>searchPokemon(e.target.value)}
                         autoFocus
                     />
@@ -113,10 +113,10 @@ export const WhoThatPokemonPage = () => {
             <CluePokemon types={whoPokemon?.types}/>
 
             {
-                (compare && (counter >  0)) && <span className="nombre-whothatpokemon">{t("page-who-that-pokemon.victory")}</span>
+                (compare && (counter >  0)) && <span className="nombre-whothatpokemon animate__animated animate__zoomInDown">{t("page-who-that-pokemon.victory")}</span>
             }
             {
-                (counter ===  0)  && <span className="nombre-whothatpokemon">{t("page-who-that-pokemon.defeat")}</span>
+                (counter ===  0)  && <span className="nombre-whothatpokemon animate__animated animate__zoomInDown">{t("page-who-that-pokemon.defeat")}</span>
             }
 
             <div>

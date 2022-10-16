@@ -33,7 +33,7 @@ export const PokeCardPlus = ({
     window.location.reload()
   }
   return (
-    <div className='pokemon-info-container'>
+    <div className='pokemon-info-container animate__animated animate__pulse'>
 
       <div className='siguiente-anterior'>
         <button className={`boton-pagination ${prevPoke?.id ?"view-input-revealed" :"view-input-hidden"}`} onClick={()=>onPokePage(prevPoke.name)}>

@@ -4,7 +4,6 @@ import { PokedexPage, PokemonPage, WhoThatPokemonPage } from "../pages"
 export const PokeRoutes = () => {
   return (
     <>
-      <div className="container-pages">
         <Routes>
           <Route exact path="/" element={<PokedexPage/>}/>
           <Route exact path="/whothatpokemon" element={<WhoThatPokemonPage/>}/>
@@ -12,7 +11,6 @@ export const PokeRoutes = () => {
 
           <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
-      </div>
     </>
   )
 }
