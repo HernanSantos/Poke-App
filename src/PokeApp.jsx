@@ -9,12 +9,13 @@ export const PokeApp = () => {
   return (
     <>
       <Navbar/>
-      <div className='page-container'>
-        <PokeLogo/>
-        <PokeRoutes/>
-      </div>
+        <div className='page-container'>
+          <PokeLogo/>
+          <PokeRoutes/>
+        </div>
       <Footer/>
     </>
+      
 
   )
 }

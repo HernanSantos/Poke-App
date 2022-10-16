@@ -1,25 +1,34 @@
-
 body{
+    padding: 0;
+    margin: 0;
+}
+#root{
     color: rgb(0, 0, 0);
     font-family: "Roboto", sans-serif;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
 }
 .page-container{
-    background-color: red;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
+
 /*Footer*/
 .footer-container{
-    background-color: #ec6f10e6;
+    background-color: #ec6f10;
     width: 100%;
     height: 4rem;
     border-radius: 0.5rem 0.5rem 0 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: auto;
+    bottom: 0;
+    position:relative;
+    
 }
 .footer-icon{
     padding: 0rem 1rem 0rem 1rem;
@@ -27,7 +36,6 @@ body{
     display: flex;
     align-items: center;
 }
-
 
 /*Modal intentos disponibles*/
 .modal{
@@ -110,7 +118,6 @@ body{
     background-color: #ec6f10e6;
     display: flex;
     justify-content: space-around;
-    border-radius: 0 0 .5rem .5rem;
     box-shadow: 0 0.625rem 0.625rem #000000cd;
 }
 .navbar-brand{
@@ -311,7 +318,6 @@ input{
     margin: auto;
     width: 60%;
     max-width: 50rem;
-    height: 100%;
     align-items: center;
 } 
 
@@ -628,8 +634,8 @@ input{
         top: 4.4rem;
         left: 0;
         right: 0;
-        background-color: #ec6f10e6;
-        border-radius: 0.5rem;
+        background-color: #ec6f10ec;
+        border-radius: 0 0 0.5rem 0.5rem;
     }
     .collapse-hidden{
         display: none;
